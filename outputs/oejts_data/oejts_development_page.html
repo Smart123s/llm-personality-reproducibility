@@ -1,0 +1,4482 @@
+<head>
+
+<title>Development of the Open Jungian Type Scales</title>
+
+<link rel="stylesheet" href="blue-style.css" type="text/css" id="" media="print, projection, screen" />
+
+<script type="text/javascript" src="jquery-latest.js"></script>
+
+<script type="text/javascript" src="jquery.tablesorter.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {$("#screenedtable").tablesorter();});
+
+</script>
+
+<style>
+
+
+
+@font-face {
+
+  font-family: Roboto;
+
+  src: url(/resources/roboto/Roboto-Regular.ttf);
+
+}
+
+
+
+* 
+
+{
+
+	font-family:Roboto, Arial;
+
+	line-height:1.3em;
+
+}
+
+
+
+
+
+</style>
+
+</head>
+
+<body style="margin:0; padding:0;background-color:#F5F5F5;">
+
+	
+
+	<div style="background-image: linear-gradient(#F0F8FF, #B0C4DE);padding:0.5em;border-bottom:1px solid #808080;overflow: hidden;">
+
+		<div style="white-space:nowrap;float:left">
+
+		 &nbsp;<b>Open-Source Psychometrics Project</b>
+
+		</div>
+
+	
+
+		<div style="white-space:nowrap; float:right">
+
+			( <a href="https://openpsychometrics.org">home</a> &middot; <a href="https://openpsychometrics.org/about/">about</a> )
+
+		</div>
+
+	</div>
+
+
+
+<br/><br/>
+
+<table style="margin:0 auto; max-width:700px;">
+
+<tr>
+
+<td valign="top" style="font-family: 'Arvo', serif;font-size:90%;">
+
+
+
+<h2>Development of the Open Extended Jungian Type Scales</h2>
+
+
+
+<p><i>This page documents the development of the OJTS. The test itself can be taken <a href="http://openpsychometrics.org/tests/OJTS/">here</a>.</i></p>
+
+
+
+        <div style="background-color:#BC8F8F;opacity:0.8;padding:0.5em;box-shadow: 0.5em 0.5em gray;border-radius:0.3em;">
+
+
+
+<b>Summary</b>
+
+
+
+<p>The Open Extended Jungian Type Scales was developed to be an open source alternative to the Myers-Briggs Type Indicator.  The OEJTS was developed by empirically selecting items that differentiated among persons who identified as one of the Myers-Briggs personality types along one of the four dichotomies. After a detailed review of psychological type, including a survey of 2230 persons about what differences the dichotomies entailed a pool of 278 items was generated. Using 25,568 participants who were experienced with psychological type and knew their personality type, this pool was reduced down to 48 items, twelve for each scale.</p>
+
+
+
+</div>
+
+
+
+<br/><br/>
+
+
+
+<div style="background-color:#d3d3d3;padding:10px;max-width:350px;opacity:0.8;padding:0.5em;box-shadow: 0.5em 0.5em gray;border-radius:0.3em;">
+
+<b>Contents</b><br/>
+
+&nbsp;&nbsp;1. <a href="#intromark">Introduction to Jung and Myers-Briggs</a><br/>
+
+&nbsp;&nbsp;2. <a href="#initalcon">Initial considerations and review of other tests</a><br/>
+
+&nbsp;&nbsp;3. <a href="#itemgen">Item generation and evaluation</a><br/>
+
+&nbsp;&nbsp;4. <a href="#versions">Versions and other downloads</a><br/>
+
+&nbsp;&nbsp;5. <a href="#appendixa">Appendix A: Full list of items screened</a><br/>
+
+&nbsp;&nbsp;6. <a href="#liscmark">Appendix B: Licence</a><br/>
+
+</div>
+
+<br/>
+
+
+
+<h3 id="intromark">Introduction to Jung and Myers-Briggs</h3>
+
+
+
+<p>The Myers-Briggs Type Indicator is an extension of Jung's theory of psychological type. The MBTI has four personality dichotomies that combine to yield 16 personality types. The dichotomies are</p>
+
+<ul>
+
+    <li><b>Introversion (I)</b> vs. <b>Extroversion (E)</b>; sometimes described as a persons orientation, either oriented inside themselves or to the outside world. Other times the focus is put more explicitly on social interaction, with some claiming that social interactions wears out introverts whereas social interaction raises the energy level in extroverts.</li> 
+
+    <li><b>Sensing (S)</b> vs. <b>Intuition (N)</b>; defined as how a person takes in information by Myers-Briggs, who said that sensors pay attention to the five senses while intuitives pay attention to possibilities.</li> 
+
+    <li><b>Feeling (F)</b> vs. <b>Thinking (T)</b>; has been defined as what a person values and what they base their decisions off of: either interpersonal considerations or through dispassionate logic.</li> 
+
+    <li><b>Judging (J)</b> vs. <b>Perceiving (P)</b>; was a dichotomy added by Myers and Briggs to pick between the second and third pair of functions. Individuals who prefer a structured lifestyle are supposed to use their judging functions (thinking and feeling) while individuals who prefer a flexible lifestyle are supposed to prefer the sensing functions (sensing and intuition).</li> 
+
+</ul>
+
+
+
+<p>The OEJTS measures four scales, each intended to produce a very large score differential along one dichotomy.</p>
+
+
+
+<!--
+
+Items for the OEJTS were 
+
+
+
+. There has been some demand for an open source measure of Myers-Briggs/Jungian type (<a href="http://cogsci.stackexchange.com/questions/1713/is-there-an-open-source-free-official-myers-briggs-assessment-i-can-adopt">e.g.</a>).
+
+<br/><br/>
+
+The question arises, how to develop such a test. Most Myers-Briggs knockoffs were produced by some guy sitting down after reading a bit about the MBTI and generating his own questions. This is bad. 
+
+<br/><br/>
+
+Items were chosen to be in the format of five point bipolar item scales, with the goal that each item would load only on one dichotomy.
+
+
+
+-->
+
+
+
+<h3 id="initalcon">Initial considerations and review of other tests</h3>
+
+
+
+<p>Most tests on the internet offer little information about how they were developed.</p>
+
+<p>There does not seem to have ever been done a comparative study of different tests. This is a symptom the problems that Myers-Briggs/Jungian type has. There are currently no criteria for what makes a good Myers-Briggs/Jungian type. Of course, it could just be accepted that the Myers-Briggs Type Indicator defines Myers-Briggs/Jungian types and so that means that the measure of a test is just how similar it is to the MBTI. This is not that satisfying though because it defaults upfront on the notion that the MBTI measures anything fundamental. It also is frustrating because if that is true then no test could ever be better than the Myers-Briggs Type Indicator, and so the problems with the MBTI like low test-reliability can never be fixed. Taking the Myers-Briggs Type Indicator as the standard that you are trying to mimic as best as possible also has the practical difficulty that this would require administering the MBTI, which is extremely expensive.</p>
+
+<p>The item format for the OEJTS has been chosen to be two statements that form a biploar scale (e.g. humble to arrogant), operationalized as a five point scale.</p>
+
+
+
+
+
+<h3 id="itemgen">Item generation and evaluation</h3>
+
+
+
+<p>Items were generated by the director of this project. An attempt was also made to 'crowdsource' item production was also made. For a while a survey was attached to the end of the active testing site and individuals who said they had extensive experience with psychological type were asked to help generate items. Their attempts (n=2230, 4 items each) can be found in <a href="crowdsourced-items.txt">crowdsourced-items.txt</a>. This was not found to be a fruitful endeavour though, the items generated were either extremely obvious or just wrong. A reading of the items generated will convince you that most people do not understand psychological type very well, particularly the S/N and J/P dichotomies.</p>
+
+
+
+<p>Items are being selected based on their ability to discriminate among confidently self-typed individuals. The site for this is the current interactive version of the OEJTS which contains twenty experimental items in addition to forty scored items were are the current best set. At the end of the test individuals are asked if they know their type, how confident they are in their self-typing and how much they know about Myers-Briggs. This is made feasible by the fact that Myers-Briggs is a popular and well known system. 57% report a type, 49% of those meet the other criteria.</p>
+
+
+
+<p>The full list of items screened with statistics can be found in <a href="#appendixa">Appendix A</a>.</p>
+
+
+
+<h3 id="versions">Versions and other downloads</h3>
+
+
+
+<li><a href="OEJTS1.2.pdf">Open Extended Jungian Type Scales 1.2</a></li>
+
+<li>Datasets are forthcoming.</li>
+
+
+
+<h3 id="appendixa">Appendix A: Full list of items screened</h3>
+
+
+
+<p>The below table contains all items screened in the development of the OEJTS.</p>
+
+<p>Mean level differences when rated on a five point scale are shown for each dichotomy with the 95% confidence interval (&#177) in parenthesis. The differences are for individual who were either "confident" or "very confident" in their self-typing and who reported spending at least two hours learning about Myers-Briggs types. Item sets were evaluated until the sample size for any group was at least approximately 200.</p>
+
+<p>To aid browsing, cells are shaded according to magnitude; differences of more than 1.05 are shaded orange, differences of more than 0.7 are salmon and differences of more than 0.35 are pink.</p>
+
+
+
+
+
+<table id="screenedtable" class="tablesorter" width="100%">
+
+<thead>
+
+<tr>
+
+<td></td>
+
+<td colspan="4" align="center">Mean level difference by dichotomy</td>
+
+</tr>
+
+<tr>
+
+<th>(click on column headers to sort)</th>
+
+<th>I-E</th>
+
+<th>S-N</th>
+
+<th>F-T</th>
+
+<th>J-P</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+
+
+
+
+
+
+<tr>
+
+<td>likes action;<br/>likes drama</td>
+
+<td  title="n=300;1294" >0.14I</td>
+
+<td  title="n=262;1332" >0.18N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=806;788" >0.49F</td>
+
+<td  title="n=913;681" >0.21P</td>
+
+</tr>
+
+<tr>
+
+<td>realistic;<br/>imaginative</td>
+
+<td  title="n=346;1189" >0.12E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=232;1303" >0.63N</td>
+
+<td  style="background-color:#FFA07A;" title="n=715;820" >0.71F</td>
+
+<td  style="background-color:#FFA07A;" title="n=861;674" >0.71P</td>
+
+</tr>
+
+<tr>
+
+<td>criticism leads to feelings of guilt;<br/>criticism leads to feelings of anger</td>
+
+<td  title="n=1007;3735" >0.16E</td>
+
+<td  title="n=767;3975" >0.08S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2214;2528" >0.56T</td>
+
+<td  title="n=2805;1937" >0.09J</td>
+
+</tr>
+
+<tr>
+
+<td>loses track of time;<br/>good sense of time</td>
+
+<td  title="n=411;1286" >0.19E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=266;1431" >0.40S</td>
+
+<td  title="n=797;900" >0.32T</td>
+
+<td  style="background-color:#FFA07A;" title="n=984;713" >0.83J</td>
+
+</tr>
+
+<tr>
+
+<td>angry;<br/>resentful</td>
+
+<td  title="n=309;1251" >0.21I</td>
+
+<td  title="n=235;1325" >0.02N</td>
+
+<td  title="n=718;842" >0.00F</td>
+
+<td  title="n=930;630" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>wishes their life was more interesting;<br/>finds their life interesting enough</td>
+
+<td  title="n=388;1408" >0.18E</td>
+
+<td  title="n=301;1495" >0.14S</td>
+
+<td  title="n=835;961" >0.13T</td>
+
+<td  title="n=1062;734" >0.25J</td>
+
+</tr>
+
+<tr>
+
+<td>talks over a decision with other people;<br/>makes it alone</td>
+
+<td  style="background-color:#FFA07A;" title="n=320;1036" >0.89I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=202;1154" >0.48N</td>
+
+<td  style="background-color:#FFA07A;" title="n=572;784" >0.84T</td>
+
+<td  title="n=830;526" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>when judging others, considers intent;<br/>only considers outcome</td>
+
+<td  title="n=319;1038" >0.02E</td>
+
+<td  title="n=204;1153" >0.25S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=573;784" >0.64T</td>
+
+<td  title="n=830;527" >0.07J</td>
+
+</tr>
+
+<tr>
+
+<td>makes things;<br/>breaks things</td>
+
+<td  title="n=301;1291" >0.19E</td>
+
+<td  title="n=262;1330" >0.12S</td>
+
+<td  title="n=805;787" >0.02T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=912;680" >0.36P</td>
+
+</tr>
+
+<tr>
+
+<td>likes knowing all the facts;<br/>likes filling in the blanks</td>
+
+<td  title="n=536;1610" >0.13E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=366;1780" >0.52N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1051;1095" >0.38F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1240;906" >0.58P</td>
+
+</tr>
+
+<tr>
+
+<td>learns before doing;<br/>learns while doing</td>
+
+<td  style="background-color:#FFA07A;" title="n=388;1410" >0.72E</td>
+
+<td  title="n=302;1496" >0.03N</td>
+
+<td  title="n=835;963" >0.26F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1064;734" >0.65P</td>
+
+</tr>
+
+<tr>
+
+<td>careful;<br/>extreme</td>
+
+<td  style="background-color:#FFA07A;" title="n=412;1287" >0.73E</td>
+
+<td  title="n=266;1433" >0.18N</td>
+
+<td  title="n=796;903" >0.02T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=986;713" >0.65P</td>
+
+</tr>
+
+<tr>
+
+<td>uses reason;<br/>uses instinct</td>
+
+<td  style="background-color:#FFB6C1;" title="n=539;1613" >0.37E</td>
+
+<td  title="n=368;1784" >0.33N</td>
+
+<td  style="background-color:#FF4500;" title="n=1055;1097" >1.17F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1243;909" >0.45P</td>
+
+</tr>
+
+<tr>
+
+<td>learns by doing;<br/>learns by watching</td>
+
+<td  title="n=1690;7151" >0.34I</td>
+
+<td  title="n=1512;7329" >0.24N</td>
+
+<td  title="n=4385;4456" >0.13T</td>
+
+<td  title="n=5161;3680" >0.10J</td>
+
+</tr>
+
+<tr>
+
+<td>trusts personal experience;<br/>trusts theory</td>
+
+<td  title="n=396;1253" >0.26I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=255;1394" >0.37N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=791;858" >0.67T</td>
+
+<td  title="n=977;672" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>prepares;<br/>improvises</td>
+
+<td  style="background-color:#FFB6C1;" title="n=537;1612" >0.43E</td>
+
+<td  title="n=366;1783" >0.28N</td>
+
+<td  title="n=1053;1096" >0.15F</td>
+
+<td  style="background-color:#FF4500;" title="n=1242;907" >1.43P</td>
+
+</tr>
+
+<tr>
+
+<td>often thinks about what they should have done differently;<br/>does not second guess</td>
+
+<td  style="background-color:#FFB6C1;" title="n=309;1246" >0.46E</td>
+
+<td  title="n=234;1321" >0.03S</td>
+
+<td  title="n=716;839" >0.09T</td>
+
+<td  title="n=929;626" >0.09P</td>
+
+</tr>
+
+<tr>
+
+<td>likes small talk;<br/>hates small talk</td>
+
+<td  style="background-color:#FFA07A;" title="n=256;994" >0.98I</td>
+
+<td  title="n=219;1031" >0.25N</td>
+
+<td  title="n=570;680" >0.28T</td>
+
+<td  title="n=677;573" >0.15J</td>
+
+</tr>
+
+<tr>
+
+<td>organized;<br/>chaotic</td>
+
+<td  title="n=6080;22180" >0.16E</td>
+
+<td  title="n=4675;23585" >0.21N</td>
+
+<td  title="n=13511;14749" >0.25F</td>
+
+<td  style="background-color:#FF4500;" title="n=16565;11695" >1.15P</td>
+
+</tr>
+
+<tr>
+
+<td>thinks role models are important;<br/>thinks the importance of role models is exaggerated</td>
+
+<td  style="background-color:#FFB6C1;" title="n=386;1411" >0.45I</td>
+
+<td  title="n=300;1497" >0.02N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=835;962" >0.62T</td>
+
+<td  title="n=1062;735" >0.20P</td>
+
+</tr>
+
+<tr>
+
+<td>interested in realities;<br/>interested in possibilities</td>
+
+<td  title="n=5501;20332" >0.14E</td>
+
+<td  style="background-color:#FFA07A;" title="n=4277;21556" >0.75N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=12469;13364" >0.36F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=15105;10728" >0.42P</td>
+
+</tr>
+
+<tr>
+
+<td>afraid of the dark;<br/>likes the dark</td>
+
+<td  title="n=261;804" >0.26I</td>
+
+<td  title="n=189;876" >0.27N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=463;602" >0.54T</td>
+
+<td  title="n=622;443" >0.01P</td>
+
+</tr>
+
+<tr>
+
+<td>focused on the present;<br/>focused on the future</td>
+
+<td  title="n=6425;23389" >0.04I</td>
+
+<td  style="background-color:#FFA07A;" title="n=4907;24907" >0.72N</td>
+
+<td  title="n=14232;15582" >0.10T</td>
+
+<td  title="n=17434;12380" >0.23J</td>
+
+</tr>
+
+<tr>
+
+<td>focuses on the big picture;<br/>takes care of the little details</td>
+
+<td  title="n=539;1614" >0.30I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=368;1785" >0.61S</td>
+
+<td  title="n=1055;1098" >0.10F</td>
+
+<td  title="n=1243;910" >0.34J</td>
+
+</tr>
+
+<tr>
+
+<td>wants to be treated right;<br/>just doesn't want to be treated wrong</td>
+
+<td  title="n=1691;7145" >0.30I</td>
+
+<td  title="n=1512;7324" >0.00S</td>
+
+<td  title="n=4385;4451" >0.28T</td>
+
+<td  title="n=5160;3676" >0.25P</td>
+
+</tr>
+
+<tr>
+
+<td>humble;<br/>can be a bit arrogant</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3095;12196" >0.37E</td>
+
+<td  title="n=2557;12734" >0.24N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=7451;7840" >0.68T</td>
+
+<td  title="n=8879;6412" >0.01J</td>
+
+</tr>
+
+<tr>
+
+<td>wants a destiny;<br/>afraid of fate</td>
+
+<td  title="n=310;1249" >0.20I</td>
+
+<td  title="n=235;1324" >0.13S</td>
+
+<td  title="n=719;840" >0.19T</td>
+
+<td  title="n=930;629" >0.06P</td>
+
+</tr>
+
+<tr>
+
+<td>can be a bit arrogant;<br/>humble</td>
+
+<td  title="n=259;807" >0.32I</td>
+
+<td  title="n=188;878" >0.17S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=465;601" >0.63F</td>
+
+<td  title="n=623;443" >0.06P</td>
+
+</tr>
+
+<tr>
+
+<td>wants people's respect;<br/>wants their love</td>
+
+<td  title="n=303;1183" >0.22E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=224;1262" >0.37S</td>
+
+<td  style="background-color:#FF4500;" title="n=717;769" >1.18F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=865;621" >0.40P</td>
+
+</tr>
+
+<tr>
+
+<td>confident;<br/>unsure</td>
+
+<td  style="background-color:#FFA07A;" title="n=907;2916" >0.92I</td>
+
+<td  title="n=646;3177" >0.10S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1802;2021" >0.40F</td>
+
+<td  title="n=2305;1518" >0.33P</td>
+
+</tr>
+
+<tr>
+
+<td>commits;<br/>keeps options open</td>
+
+<td  title="n=6427;23397" >0.04E</td>
+
+<td  title="n=4910;24914" >0.25N</td>
+
+<td  title="n=14237;15587" >0.14T</td>
+
+<td  style="background-color:#FFA07A;" title="n=17440;12384" >0.87P</td>
+
+</tr>
+
+<tr>
+
+<td>likes to know \"who?\", \"what?\", \"when?\";<br/>likes to know \"why?\"</td>
+
+<td  title="n=6423;23392" >0.18I</td>
+
+<td  style="background-color:#FFA07A;" title="n=4911;24904" >0.73N</td>
+
+<td  title="n=14236;15579" >0.04T</td>
+
+<td  title="n=17438;12377" >0.19P</td>
+
+</tr>
+
+<tr>
+
+<td>manipulates things behind the scenes;<br/>leads from the front</td>
+
+<td  style="background-color:#FF4500;" title="n=3097;12189" >1.12E</td>
+
+<td  title="n=2555;12731" >0.11S</td>
+
+<td  title="n=7445;7841" >0.13F</td>
+
+<td  title="n=8875;6411" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>trusting;<br/>paranoid</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1690;7147" >0.60I</td>
+
+<td  title="n=1512;7325" >0.12N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4385;4452" >0.43T</td>
+
+<td  title="n=5157;3680" >0.07J</td>
+
+</tr>
+
+<tr>
+
+<td>tricky;<br/>steady</td>
+
+<td  title="n=304;1184" >0.20I</td>
+
+<td  title="n=223;1265" >0.26S</td>
+
+<td  title="n=719;769" >0.05F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=866;622" >0.52J</td>
+
+</tr>
+
+<tr>
+
+<td>assured by routine;<br/>bored by routine</td>
+
+<td  style="background-color:#FFB6C1;" title="n=396;1255" >0.60E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=254;1397" >0.59N</td>
+
+<td  title="n=792;859" >0.00F</td>
+
+<td  style="background-color:#FFA07A;" title="n=979;672" >0.82P</td>
+
+</tr>
+
+<tr>
+
+<td>needs certainty;<br/>needs flexibility</td>
+
+<td  style="background-color:#FFB6C1;" title="n=344;1188" >0.44E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=228;1304" >0.39N</td>
+
+<td  title="n=715;817" >0.16F</td>
+
+<td  style="background-color:#FFA07A;" title="n=861;671" >0.82P</td>
+
+</tr>
+
+<tr>
+
+<td>gets work done right away;<br/>procrastinates</td>
+
+<td  title="n=6424;23378" >0.10I</td>
+
+<td  title="n=4907;24895" >0.11N</td>
+
+<td  title="n=14227;15575" >0.29F</td>
+
+<td  style="background-color:#FFA07A;" title="n=17428;12374" >0.93P</td>
+
+</tr>
+
+<tr>
+
+<td>feels unlucky;<br/>feels very lucky</td>
+
+<td  style="background-color:#FFB6C1;" title="n=318;1037" >0.68E</td>
+
+<td  title="n=203;1152" >0.05N</td>
+
+<td  title="n=574;781" >0.12F</td>
+
+<td  title="n=829;526" >0.05P</td>
+
+</tr>
+
+<tr>
+
+<td>cares if something is good or bad;<br/>cares if something is true or false</td>
+
+<td  title="n=6084;22184" >0.19I</td>
+
+<td  title="n=4670;23598" >0.14N</td>
+
+<td  style="background-color:#FF4500;" title="n=13512;14756" >1.12T</td>
+
+<td  title="n=16572;11696" >0.12J</td>
+
+</tr>
+
+<tr>
+
+<td>methodical;<br/>astonishing</td>
+
+<td  style="background-color:#FFB6C1;" title="n=299;1288" >0.45E</td>
+
+<td  title="n=261;1326" >0.21N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=801;786" >0.51F</td>
+
+<td  style="background-color:#FFA07A;" title="n=907;680" >0.72P</td>
+
+</tr>
+
+<tr>
+
+<td>cautious;<br/>bold</td>
+
+<td  style="background-color:#FFA07A;" title="n=911;2918" >1.04E</td>
+
+<td  title="n=645;3184" >0.23N</td>
+
+<td  title="n=1807;2022" >0.07T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2308;1521" >0.36P</td>
+
+</tr>
+
+<tr>
+
+<td>likes nature;<br/>likes human industry</td>
+
+<td  title="n=256;997" >0.17E</td>
+
+<td  title="n=219;1034" >0.00S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=571;682" >0.52T</td>
+
+<td  title="n=679;574" >0.03J</td>
+
+</tr>
+
+<tr>
+
+<td>caffeine (or other stimulant) gives a major boost;<br/>hardly notices the effects</td>
+
+<td  title="n=906;2907" >0.31I</td>
+
+<td  title="n=643;3170" >0.13S</td>
+
+<td  title="n=1801;2012" >0.28T</td>
+
+<td  title="n=2297;1516" >0.01J</td>
+
+</tr>
+
+<tr>
+
+<td>somber;<br/>enthusiastic</td>
+
+<td  style="background-color:#FF4500;" title="n=396;1254" >1.33E</td>
+
+<td  title="n=253;1397" >0.02S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=791;859" >0.54F</td>
+
+<td  title="n=979;671" >0.31P</td>
+
+</tr>
+
+<tr>
+
+<td>wants loyal friends;<br/>wants fun friends</td>
+
+<td  style="background-color:#FFB6C1;" title="n=301;1290" >0.50E</td>
+
+<td  title="n=261;1330" >0.07S</td>
+
+<td  title="n=804;787" >0.06T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=909;682" >0.43P</td>
+
+</tr>
+
+<tr>
+
+<td>no one knows what they are talking about;<br/>some people know what they are talking about</td>
+
+<td  style="background-color:#FFB6C1;" title="n=410;1287" >0.36E</td>
+
+<td  title="n=266;1431" >0.11S</td>
+
+<td  title="n=796;901" >0.32F</td>
+
+<td  title="n=984;713" >0.02P</td>
+
+</tr>
+
+<tr>
+
+<td>sentimental;<br/>grim</td>
+
+<td  style="background-color:#FFB6C1;" title="n=304;1182" >0.40I</td>
+
+<td  title="n=223;1263" >0.28N</td>
+
+<td  style="background-color:#FF4500;" title="n=718;768" >1.07T</td>
+
+<td  title="n=866;620" >0.13J</td>
+
+</tr>
+
+<tr>
+
+<td>like to listen to stories;<br/>likes to tell stories</td>
+
+<td  style="background-color:#FFA07A;" title="n=3096;12192" >0.94E</td>
+
+<td  title="n=2558;12730" >0.10N</td>
+
+<td  title="n=7444;7844" >0.06F</td>
+
+<td  title="n=8878;6410" >0.15P</td>
+
+</tr>
+
+<tr>
+
+<td>adapts to the world;<br/>wants the world to adapt to them</td>
+
+<td  title="n=319;1038" >0.23I</td>
+
+<td  title="n=203;1154" >0.33N</td>
+
+<td  title="n=574;783" >0.26T</td>
+
+<td  title="n=830;527" >0.05J</td>
+
+</tr>
+
+<tr>
+
+<td>double checks their work;<br/>hopes for the best</td>
+
+<td  style="background-color:#FFB6C1;" title="n=412;1286" >0.44E</td>
+
+<td  title="n=266;1432" >0.07N</td>
+
+<td  title="n=796;902" >0.35F</td>
+
+<td  style="background-color:#FFA07A;" title="n=985;713" >0.82P</td>
+
+</tr>
+
+<tr>
+
+<td>if a lawyer, would prefer to be a prosecutor;<br/>would prefer to be defense attorney</td>
+
+<td  title="n=260;804" >0.11I</td>
+
+<td  title="n=188;876" >0.15N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=462;602" >0.65F</td>
+
+<td  title="n=620;444" >0.28P</td>
+
+</tr>
+
+<tr>
+
+<td>will say \"these are the things I have <i>made</i>\";<br/>will say \"these are the things I have <i>designed</i>\"</td>
+
+<td  title="n=2284;7445" >0.05I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1597;8132" >0.63N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4470;5259" >0.39T</td>
+
+<td  title="n=5800;3929" >0.08P</td>
+
+</tr>
+
+<tr>
+
+<td>good with names;<br/>bad with names</td>
+
+<td  title="n=1691;7149" >0.23I</td>
+
+<td  title="n=1512;7328" >0.25N</td>
+
+<td  title="n=4385;4455" >0.24T</td>
+
+<td  title="n=5161;3679" >0.14P</td>
+
+</tr>
+
+<tr>
+
+<td>likes to eavesdrop;<br/>finds other people's conversations too boring</td>
+
+<td  title="n=255;997" >0.21I</td>
+
+<td  title="n=219;1033" >0.20N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=571;681" >0.55T</td>
+
+<td  title="n=679;573" >0.14J</td>
+
+</tr>
+
+<tr>
+
+<td>decides;<br/>guesses</td>
+
+<td  title="n=539;1612" >0.02I</td>
+
+<td  title="n=367;1784" >0.04S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1054;1097" >0.56F</td>
+
+<td  style="background-color:#FFA07A;" title="n=1241;910" >0.94P</td>
+
+</tr>
+
+<tr>
+
+<td>sceptical;<br/>wants to believe</td>
+
+<td  style="background-color:#FFB6C1;" title="n=319;1040" >0.46E</td>
+
+<td  title="n=203;1156" >0.18S</td>
+
+<td  style="background-color:#FF4500;" title="n=573;786" >1.17F</td>
+
+<td  title="n=833;526" >0.18P</td>
+
+</tr>
+
+<tr>
+
+<td>has been through a lot of tough times;<br/>has had an easy life</td>
+
+<td  title="n=255;997" >0.17E</td>
+
+<td  title="n=218;1034" >0.21S</td>
+
+<td  title="n=571;681" >0.19T</td>
+
+<td  title="n=679;573" >0.30P</td>
+
+</tr>
+
+<tr>
+
+<td>abstains;<br/>indulges</td>
+
+<td  style="background-color:#FFB6C1;" title="n=260;804" >0.57E</td>
+
+<td  title="n=187;877" >0.09S</td>
+
+<td  title="n=464;600" >0.27F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=622;442" >0.39P</td>
+
+</tr>
+
+<tr>
+
+<td>answers mail right away;<br/>gets behind on answering mail</td>
+
+<td  title="n=5686;20932" >0.16I</td>
+
+<td  title="n=4420;22198" >0.20N</td>
+
+<td  title="n=12728;13890" >0.12F</td>
+
+<td  style="background-color:#FFA07A;" title="n=15590;11028" >0.70P</td>
+
+</tr>
+
+<tr>
+
+<td>fears sharing secrets;<br/>enjoys sharing secrets</td>
+
+<td  style="background-color:#FFA07A;" title="n=2300;7298" >0.97E</td>
+
+<td  title="n=1557;8041" >0.10S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4429;5169" >0.50F</td>
+
+<td  title="n=5723;3875" >0.30P</td>
+
+</tr>
+
+<tr>
+
+<td>wants to impress authority;<br/>rebels against authority</td>
+
+<td  title="n=1638;5240" >0.10I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1115;5763" >0.56N</td>
+
+<td  title="n=3172;3706" >0.32T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4121;2757" >0.53P</td>
+
+</tr>
+
+<tr>
+
+<td>careful;<br/>lives dangerously</td>
+
+<td  style="background-color:#FFA07A;" title="n=310;1249" >0.76E</td>
+
+<td  title="n=235;1324" >0.27N</td>
+
+<td  title="n=718;841" >0.01T</td>
+
+<td  style="background-color:#FFA07A;" title="n=930;629" >0.71P</td>
+
+</tr>
+
+<tr>
+
+<td>careful;<br/>spontaneous</td>
+
+<td  style="background-color:#FFA07A;" title="n=346;1192" >0.99E</td>
+
+<td  title="n=232;1306" >0.11N</td>
+
+<td  title="n=715;823" >0.25F</td>
+
+<td  style="background-color:#FFA07A;" title="n=864;674" >0.85P</td>
+
+</tr>
+
+<tr>
+
+<td>always finishes sentences;<br/>can trail off in the middle of a sentences</td>
+
+<td  title="n=260;804" >0.19I</td>
+
+<td  title="n=188;876" >0.16N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=463;601" >0.47F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=623;441" >0.63P</td>
+
+</tr>
+
+<tr>
+
+<td>reads books;<br/>watches movies</td>
+
+<td  style="background-color:#FFB6C1;" title="n=304;1185" >0.37E</td>
+
+<td  title="n=224;1265" >0.25S</td>
+
+<td  title="n=719;770" >0.27F</td>
+
+<td  title="n=867;622" >0.19P</td>
+
+</tr>
+
+<tr>
+
+<td>when describing an event, will tell people what happened;<br/>when describing an event, will tell people what it meant</td>
+
+<td  title="n=6086;22199" >0.03I</td>
+
+<td  style="background-color:#FFA07A;" title="n=4681;23604" >0.74N</td>
+
+<td  title="n=13519;14766" >0.26F</td>
+
+<td  title="n=16584;11701" >0.15P</td>
+
+</tr>
+
+<tr>
+
+<td>likes being drunk;<br/>feels uncomfortable when drunk</td>
+
+<td  style="background-color:#FFB6C1;" title="n=539;1612" >0.61I</td>
+
+<td  title="n=368;1783" >0.05S</td>
+
+<td  title="n=1055;1096" >0.15T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1241;910" >0.52J</td>
+
+</tr>
+
+<tr>
+
+<td>energetic;<br/>mellow</td>
+
+<td  style="background-color:#FF4500;" title="n=259;806" >1.24I</td>
+
+<td  title="n=188;877" >0.11N</td>
+
+<td  title="n=464;601" >0.15T</td>
+
+<td  title="n=622;443" >0.05P</td>
+
+</tr>
+
+<tr>
+
+<td>sincere;<br/>sarcastic</td>
+
+<td  title="n=304;1184" >0.06I</td>
+
+<td  title="n=224;1264" >0.03N</td>
+
+<td  style="background-color:#FFA07A;" title="n=719;769" >0.87T</td>
+
+<td  title="n=866;622" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>always has a backup plan;<br/>never needs a backup plan</td>
+
+<td  title="n=3484;13598" >0.21E</td>
+
+<td  title="n=2856;14226" >0.03S</td>
+
+<td  title="n=8278;8804" >0.16F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=9936;7146" >0.60P</td>
+
+</tr>
+
+<tr>
+
+<td>appreciates the scenery around them;<br/>too distracted to take a look</td>
+
+<td  title="n=310;1251" >0.09I</td>
+
+<td  title="n=235;1326" >0.14N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=719;842" >0.42T</td>
+
+<td  title="n=931;630" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>worries most about tripping and falling in the dark;<br/>imagines monsters in the dark</td>
+
+<td  title="n=538;1611" >0.02I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=368;1781" >0.36N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1052;1097" >0.49F</td>
+
+<td  title="n=1239;910" >0.28P</td>
+
+</tr>
+
+<tr>
+
+<td>friendly;<br/>distant</td>
+
+<td  style="background-color:#FF4500;" title="n=256;996" >1.26I</td>
+
+<td  title="n=219;1033" >0.27N</td>
+
+<td  style="background-color:#FFA07A;" title="n=571;681" >0.74T</td>
+
+<td  title="n=679;573" >0.13J</td>
+
+</tr>
+
+<tr>
+
+<td>seeks clarity;<br/>seeks harmony</td>
+
+<td  title="n=1689;7149" >0.16E</td>
+
+<td  title="n=1512;7326" >0.17S</td>
+
+<td  style="background-color:#FF4500;" title="n=4386;4452" >1.05F</td>
+
+<td  title="n=5158;3680" >0.34P</td>
+
+</tr>
+
+<tr>
+
+<td>fits in;<br/>stands out</td>
+
+<td  title="n=5687;20937" >0.04I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4422;22202" >0.48N</td>
+
+<td  title="n=12727;13897" >0.14T</td>
+
+<td  title="n=15593;11031" >0.18P</td>
+
+</tr>
+
+<tr>
+
+<td>thinks about things from the top down;<br/>reasons from the bottom up</td>
+
+<td  title="n=538;1611" >0.24I</td>
+
+<td  title="n=367;1782" >0.14N</td>
+
+<td  title="n=1053;1096" >0.05T</td>
+
+<td  title="n=1242;907" >0.11P</td>
+
+</tr>
+
+<tr>
+
+<td>would hate to be called weird;<br/>does not want to be thought of as normal</td>
+
+<td  title="n=410;1288" >0.10I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=264;1434" >0.36N</td>
+
+<td  title="n=795;903" >0.12T</td>
+
+<td  title="n=984;714" >0.31P</td>
+
+</tr>
+
+<tr>
+
+<td>well-rounded;<br/>deep</td>
+
+<td  style="background-color:#FFB6C1;" title="n=386;1405" >0.64I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=300;1491" >0.42N</td>
+
+<td  title="n=831;960" >0.14F</td>
+
+<td  title="n=1058;733" >0.10P</td>
+
+</tr>
+
+<tr>
+
+<td>wants a normal lifespan;<br/>wants to live forever</td>
+
+<td  title="n=304;1183" >0.34E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=224;1263" >0.57N</td>
+
+<td  title="n=717;770" >0.28T</td>
+
+<td  title="n=867;620" >0.12P</td>
+
+</tr>
+
+<tr>
+
+<td>enthusiastic;<br/>deliberate</td>
+
+<td  style="background-color:#FF4500;" title="n=388;1409" >1.17I</td>
+
+<td  title="n=302;1495" >0.04S</td>
+
+<td  style="background-color:#FFA07A;" title="n=834;963" >0.80T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1063;734" >0.53J</td>
+
+</tr>
+
+<tr>
+
+<td>tries to be different;<br/>tries to be normal</td>
+
+<td  title="n=906;2910" >0.18I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=643;3173" >0.43S</td>
+
+<td  title="n=1800;2016" >0.00T</td>
+
+<td  title="n=2299;1517" >0.23J</td>
+
+</tr>
+
+<tr>
+
+<td>has not changed much;<br/>very different than before</td>
+
+<td  style="background-color:#FFB6C1;" title="n=318;1039" >0.37E</td>
+
+<td  title="n=204;1153" >0.16N</td>
+
+<td  title="n=575;782" >0.13F</td>
+
+<td  title="n=831;526" >0.29P</td>
+
+</tr>
+
+<tr>
+
+<td>tense;<br/>relaxed</td>
+
+<td  style="background-color:#FFB6C1;" title="n=388;1407" >0.60E</td>
+
+<td  title="n=302;1493" >0.10S</td>
+
+<td  title="n=833;962" >0.15F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1062;733" >0.37P</td>
+
+</tr>
+
+<tr>
+
+<td>makes rules;<br/>breaks rules</td>
+
+<td  style="background-color:#FFB6C1;" title="n=388;1408" >0.44E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=302;1494" >0.45N</td>
+
+<td  title="n=833;963" >0.06T</td>
+
+<td  style="background-color:#FFA07A;" title="n=1064;732" >0.86P</td>
+
+</tr>
+
+<tr>
+
+<td>literal;<br/>poetic</td>
+
+<td  title="n=538;1612" >0.05I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=367;1783" >0.64N</td>
+
+<td  style="background-color:#FFA07A;" title="n=1054;1096" >1.02F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1241;909" >0.44P</td>
+
+</tr>
+
+<tr>
+
+<td>needs to work;<br/>only works because they must</td>
+
+<td  title="n=309;1251" >0.07I</td>
+
+<td  title="n=235;1325" >0.06N</td>
+
+<td  title="n=719;841" >0.23F</td>
+
+<td  style="background-color:#FFA07A;" title="n=931;629" >0.78P</td>
+
+</tr>
+
+<tr>
+
+<td>liked school;<br/>hated school</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1690;7149" >0.38I</td>
+
+<td  title="n=1513;7326" >0.06S</td>
+
+<td  title="n=4384;4455" >0.05F</td>
+
+<td  title="n=5159;3680" >0.35P</td>
+
+</tr>
+
+<tr>
+
+<td>comes up with ideas and convinces other people of them;<br/>critically evaluates the ideas of others</td>
+
+<td  style="background-color:#FFB6C1;" title="n=300;1291" >0.66I</td>
+
+<td  title="n=262;1329" >0.26S</td>
+
+<td  title="n=805;786" >0.26T</td>
+
+<td  title="n=910;681" >0.26J</td>
+
+</tr>
+
+<tr>
+
+<td>looks on the bright side;<br/>finds faults</td>
+
+<td  style="background-color:#FFB6C1;" title="n=309;1251" >0.64I</td>
+
+<td  title="n=235;1325" >0.08N</td>
+
+<td  style="background-color:#FFA07A;" title="n=718;842" >0.70T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=930;630" >0.41J</td>
+
+</tr>
+
+<tr>
+
+<td>thinks it is better to be naive;<br/>thinks it is better to be paranoid</td>
+
+<td  style="background-color:#FFB6C1;" title="n=386;1408" >0.38I</td>
+
+<td  title="n=301;1493" >0.11N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=832;962" >0.56T</td>
+
+<td  title="n=1061;733" >0.24J</td>
+
+</tr>
+
+<tr>
+
+<td>worries about getting scammed all the time;<br/>too trusting</td>
+
+<td  style="background-color:#FFB6C1;" title="n=301;1293" >0.37E</td>
+
+<td  title="n=262;1332" >0.15S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=807;787" >0.58F</td>
+
+<td  title="n=912;682" >0.15P</td>
+
+</tr>
+
+<tr>
+
+<td>jealous;<br/>greedy</td>
+
+<td  title="n=301;1290" >0.14E</td>
+
+<td  title="n=260;1331" >0.00S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=805;786" >0.38T</td>
+
+<td  title="n=910;681" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>worried about the dangers of technology;<br/>thinks technology is always good</td>
+
+<td  title="n=256;997" >0.05E</td>
+
+<td  title="n=219;1034" >0.15S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=571;682" >0.40T</td>
+
+<td  title="n=679;574" >0.15P</td>
+
+</tr>
+
+<tr>
+
+<td>listens more;<br/>talks more</td>
+
+<td  style="background-color:#FF4500;" title="n=7117;26074" >1.37E</td>
+
+<td  title="n=5471;27720" >0.06S</td>
+
+<td  title="n=15859;17332" >0.09F</td>
+
+<td  title="n=19410;13781" >0.23P</td>
+
+</tr>
+
+<tr>
+
+<td>wants to believe;<br/>sceptical</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3098;12192" >0.39I</td>
+
+<td  title="n=2557;12733" >0.17N</td>
+
+<td  style="background-color:#FF4500;" title="n=7446;7844" >1.10T</td>
+
+<td  title="n=8875;6415" >0.16J</td>
+
+</tr>
+
+<tr>
+
+<td>prefers to be first mate;<br/>prefers to be captain</td>
+
+<td  style="background-color:#FFA07A;" title="n=2591;8752" >0.93E</td>
+
+<td  title="n=1868;9475" >0.18N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=5284;6059" >0.36T</td>
+
+<td  title="n=6725;4618" >0.11J</td>
+
+</tr>
+
+<tr>
+
+<td>flowing;<br/>twitching</td>
+
+<td  title="n=309;1248" >0.24I</td>
+
+<td  title="n=234;1323" >0.06S</td>
+
+<td  title="n=718;839" >0.13T</td>
+
+<td  title="n=928;629" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>sticks to the plan;<br/>adapts the plan on the fly</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2985;9986" >0.49E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2118;10853" >0.40N</td>
+
+<td  title="n=6060;6911" >0.12F</td>
+
+<td  style="background-color:#FF4500;" title="n=7684;5287" >1.07P</td>
+
+</tr>
+
+<tr>
+
+<td>idealistic;<br/>cynical</td>
+
+<td  style="background-color:#FFB6C1;" title="n=345;1193" >0.45I</td>
+
+<td  title="n=232;1306" >0.27S</td>
+
+<td  style="background-color:#FFA07A;" title="n=715;823" >0.83T</td>
+
+<td  title="n=864;674" >0.35J</td>
+
+</tr>
+
+<tr>
+
+<td>artistic;<br/>scientific</td>
+
+<td  title="n=2987;10002" >0.21I</td>
+
+<td  title="n=2120;10869" >0.13S</td>
+
+<td  style="background-color:#FF4500;" title="n=6072;6917" >1.08T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=7700;5289" >0.42J</td>
+
+</tr>
+
+<tr>
+
+<td>has deep interests;<br/>has many interests</td>
+
+<td  style="background-color:#FFA07A;" title="n=3097;12192" >0.72E</td>
+
+<td  title="n=2556;12733" >0.15S</td>
+
+<td  title="n=7448;7841" >0.05T</td>
+
+<td  title="n=8879;6410" >0.32P</td>
+
+</tr>
+
+<tr>
+
+<td>finds natural disasters exciting;<br/>finds natural disasters tragic</td>
+
+<td  title="n=409;1288" >0.05E</td>
+
+<td  title="n=266;1431" >0.29S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=795;902" >0.66F</td>
+
+<td  title="n=983;714" >0.20J</td>
+
+</tr>
+
+<tr>
+
+<td>accepts things as they are;<br/>unsatisfied with the ways things are</td>
+
+<td  title="n=4200;16174" >0.06I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3383;16991" >0.55N</td>
+
+<td  title="n=9880;10494" >0.15T</td>
+
+<td  title="n=11836;8538" >0.00P</td>
+
+</tr>
+
+<tr>
+
+<td>people-oriented;<br/>task-oriented</td>
+
+<td  style="background-color:#FF4500;" title="n=346;1192" >1.23I</td>
+
+<td  title="n=232;1306" >0.07S</td>
+
+<td  style="background-color:#FF4500;" title="n=716;822" >1.10T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=863;675" >0.57J</td>
+
+</tr>
+
+<tr>
+
+<td>everyone breaks the law now and then;<br/>only bad people break the law</td>
+
+<td  title="n=412;1286" >0.15I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=266;1432" >0.40S</td>
+
+<td  title="n=795;903" >0.18F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=985;713" >0.51J</td>
+
+</tr>
+
+<tr>
+
+<td>tells others about their plans;<br/>tells others about what they have done</td>
+
+<td  title="n=1690;7148" >0.22I</td>
+
+<td  title="n=1513;7325" >0.10S</td>
+
+<td  title="n=4385;4453" >0.17T</td>
+
+<td  title="n=5159;3679" >0.08P</td>
+
+</tr>
+
+<tr>
+
+<td>keep room door closed;<br/>leaves door open</td>
+
+<td  style="background-color:#FFA07A;" title="n=4990;18223" >0.83E</td>
+
+<td  title="n=3855;19358" >0.09S</td>
+
+<td  title="n=11077;12136" >0.17F</td>
+
+<td  title="n=13610;9603" >0.08P</td>
+
+</tr>
+
+<tr>
+
+<td>wants to know what others think;<br/>decides on their own</td>
+
+<td  title="n=309;1251" >0.19I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=235;1325" >0.46N</td>
+
+<td  style="background-color:#FFA07A;" title="n=718;842" >0.78T</td>
+
+<td  title="n=930;630" >0.02J</td>
+
+</tr>
+
+<tr>
+
+<td>eager;<br/>reluctant</td>
+
+<td  style="background-color:#FFA07A;" title="n=304;1184" >0.86I</td>
+
+<td  title="n=224;1264" >0.01N</td>
+
+<td  title="n=719;769" >0.33T</td>
+
+<td  title="n=866;622" >0.08P</td>
+
+</tr>
+
+<tr>
+
+<td>respects the letter of the law;<br/>follows the spirit of the law</td>
+
+<td  title="n=539;1615" >0.06E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=368;1786" >0.51N</td>
+
+<td  title="n=1055;1099" >0.27F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1243;911" >0.50P</td>
+
+</tr>
+
+<tr>
+
+<td>criticizes themselves;<br/>accepts themselves</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1690;7149" >0.48E</td>
+
+<td  title="n=1511;7328" >0.02S</td>
+
+<td  title="n=4384;4455" >0.10T</td>
+
+<td  title="n=5159;3680" >0.10P</td>
+
+</tr>
+
+<tr>
+
+<td>sounds and smells often bring back childhood memories;<br/>childhood memories never come unintentionally</td>
+
+<td  title="n=259;807" >0.14I</td>
+
+<td  title="n=187;879" >0.11N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=464;602" >0.54T</td>
+
+<td  title="n=623;443" >0.13J</td>
+
+</tr>
+
+<tr>
+
+<td>quick thinker;<br/>deep thinker</td>
+
+<td  style="background-color:#FFA07A;" title="n=1689;7150" >0.79I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1513;7326" >0.37N</td>
+
+<td  title="n=4384;4455" >0.18F</td>
+
+<td  title="n=5161;3678" >0.03J</td>
+
+</tr>
+
+<tr>
+
+<td>likes words;<br/>likes numbers</td>
+
+<td  title="n=580;1842" >0.10I</td>
+
+<td  title="n=391;2031" >0.28S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1039;1383" >0.70T</td>
+
+<td  title="n=1452;970" >0.22J</td>
+
+</tr>
+
+<tr>
+
+<td>argues for ideas;<br/>argues against ideas</td>
+
+<td  title="n=300;1289" >0.04I</td>
+
+<td  title="n=262;1327" >0.20S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=803;786" >0.36T</td>
+
+<td  title="n=911;678" >0.07P</td>
+
+</tr>
+
+<tr>
+
+<td>notices a person&#39;<br/>s physical appearance first</td>
+
+<td  title="n=537;1608" >0.21E</td>
+
+<td  title="n=366;1779" >0.21S</td>
+
+<td  title="n=1050;1095" >0.14T</td>
+
+<td  title="n=1239;906" >0.09P</td>
+
+</tr>
+
+<tr>
+
+<td>complicated;<br/>uncomplicated</td>
+
+<td  title="n=386;1402" >0.27E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=302;1486" >0.41S</td>
+
+<td  title="n=829;959" >0.06T</td>
+
+<td  title="n=1058;730" >0.13P</td>
+
+</tr>
+
+<tr>
+
+<td>hates the dentist;<br/>does not mind the dentist</td>
+
+<td  title="n=1691;7148" >0.19E</td>
+
+<td  title="n=1513;7326" >0.02N</td>
+
+<td  title="n=4386;4453" >0.11T</td>
+
+<td  title="n=5161;3678" >0.03P</td>
+
+</tr>
+
+<tr>
+
+<td>wants the big picture;<br/>wants the details</td>
+
+<td  title="n=345;1189" >0.28I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=232;1302" >0.63S</td>
+
+<td  title="n=714;820" >0.03T</td>
+
+<td  title="n=862;672" >0.18J</td>
+
+</tr>
+
+<tr>
+
+<td>if a lawyer, would prefer to be a defense attorney;<br/>would prefer to be prosecutor</td>
+
+<td  title="n=1641;5236" >0.13E</td>
+
+<td  title="n=1115;5762" >0.19S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3175;3702" >0.55T</td>
+
+<td  title="n=4116;2761" >0.25J</td>
+
+</tr>
+
+<tr>
+
+<td>gives hints;<br/>tell it straight up</td>
+
+<td  title="n=310;1248" >0.35E</td>
+
+<td  title="n=235;1323" >0.09S</td>
+
+<td  style="background-color:#FFA07A;" title="n=718;840" >0.75T</td>
+
+<td  title="n=929;629" >0.11J</td>
+
+</tr>
+
+<tr>
+
+<td>timid;<br/>offensive</td>
+
+<td  style="background-color:#FFA07A;" title="n=301;1294" >0.98E</td>
+
+<td  title="n=262;1333" >0.10N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=808;787" >0.48T</td>
+
+<td  title="n=914;681" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>thinks only the lucky succeed;<br/>knows only the hard-working get lucky</td>
+
+<td  title="n=256;997" >0.02E</td>
+
+<td  title="n=219;1034" >0.06N</td>
+
+<td  title="n=571;682" >0.26T</td>
+
+<td  title="n=679;574" >0.31J</td>
+
+</tr>
+
+<tr>
+
+<td>judges music based on melody;<br/>judges music based on lyrics</td>
+
+<td  title="n=398;1256" >0.01I</td>
+
+<td  title="n=255;1399" >0.00N</td>
+
+<td  title="n=793;861" >0.09F</td>
+
+<td  title="n=980;674" >0.03P</td>
+
+</tr>
+
+<tr>
+
+<td>works best alone;<br/>works best in groups</td>
+
+<td  style="background-color:#FF4500;" title="n=1033;3893" >1.19E</td>
+
+<td  title="n=796;4130" >0.09S</td>
+
+<td  title="n=2354;2572" >0.33F</td>
+
+<td  title="n=2836;2090" >0.21P</td>
+
+</tr>
+
+<tr>
+
+<td>relaxes;<br/>daydreams</td>
+
+<td  title="n=1690;7151" >0.26I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1513;7328" >0.48N</td>
+
+<td  title="n=4387;4454" >0.22F</td>
+
+<td  title="n=5161;3680" >0.34P</td>
+
+</tr>
+
+<tr>
+
+<td>views things as many shades of grey;<br/>views things as black and white</td>
+
+<td  title="n=398;1254" >0.14E</td>
+
+<td  title="n=253;1399" >0.29S</td>
+
+<td  title="n=792;860" >0.25T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=977;675" >0.39J</td>
+
+</tr>
+
+<tr>
+
+<td>keeps pets;<br/>has no interest in pets</td>
+
+<td  title="n=256;997" >0.15I</td>
+
+<td  title="n=219;1034" >0.15N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=571;682" >0.40T</td>
+
+<td  title="n=679;574" >0.13J</td>
+
+</tr>
+
+<tr>
+
+<td>easy to gross out;<br/>fascinated by disgusting things</td>
+
+<td  title="n=1688;7143" >0.09I</td>
+
+<td  title="n=1509;7322" >0.25N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4380;4451" >0.38T</td>
+
+<td  title="n=5157;3674" >0.12P</td>
+
+</tr>
+
+<tr>
+
+<td>fumbling;<br/>graceful</td>
+
+<td  title="n=309;1248" >0.24E</td>
+
+<td  title="n=233;1324" >0.03N</td>
+
+<td  title="n=719;838" >0.10T</td>
+
+<td  title="n=928;629" >0.28J</td>
+
+</tr>
+
+<tr>
+
+<td>hopeful;<br/>fearful</td>
+
+<td  style="background-color:#FFB6C1;" title="n=255;997" >0.68I</td>
+
+<td  title="n=219;1033" >0.11S</td>
+
+<td  title="n=570;682" >0.09T</td>
+
+<td  title="n=678;574" >0.01J</td>
+
+</tr>
+
+<tr>
+
+<td>shares deepest secrets;<br/>has no secrets worth sharing</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1640;5236" >0.58I</td>
+
+<td  title="n=1112;5764" >0.11S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3173;3703" >0.69T</td>
+
+<td  title="n=4116;2760" >0.19J</td>
+
+</tr>
+
+<tr>
+
+<td>light sleeper;<br/>deep sleeper</td>
+
+<td  title="n=1685;7148" >0.08E</td>
+
+<td  title="n=1511;7322" >0.03N</td>
+
+<td  title="n=4384;4449" >0.03F</td>
+
+<td  title="n=5155;3678" >0.14P</td>
+
+</tr>
+
+<tr>
+
+<td>comfortable;<br/>troubled</td>
+
+<td  style="background-color:#FFA07A;" title="n=303;1184" >0.71I</td>
+
+<td  title="n=224;1263" >0.26N</td>
+
+<td  title="n=719;768" >0.08T</td>
+
+<td  title="n=865;622" >0.11P</td>
+
+</tr>
+
+<tr>
+
+<td>likes pop music;<br/>hates pop music</td>
+
+<td  title="n=256;996" >0.30I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=219;1033" >0.44N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=570;682" >0.44T</td>
+
+<td  title="n=678;574" >0.06J</td>
+
+</tr>
+
+<tr>
+
+<td>get a task done in one go;<br/>does a task a little at a time</td>
+
+<td  title="n=260;802" >0.23I</td>
+
+<td  title="n=186;876" >0.01S</td>
+
+<td  title="n=463;599" >0.31F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=621;441" >0.41P</td>
+
+</tr>
+
+<tr>
+
+<td>has to be lost for a long time before they ask for help;<br/>will stop and ask for directions right away</td>
+
+<td  style="background-color:#FFB6C1;" title="n=300;1288" >0.69E</td>
+
+<td  title="n=262;1326" >0.08S</td>
+
+<td  title="n=805;783" >0.19F</td>
+
+<td  title="n=908;680" >0.25J</td>
+
+</tr>
+
+<tr>
+
+<td>feels very lucky;<br/>feels unlucky</td>
+
+<td  style="background-color:#FFB6C1;" title="n=260;807" >0.69I</td>
+
+<td  title="n=188;879" >0.04N</td>
+
+<td  title="n=465;602" >0.04T</td>
+
+<td  title="n=624;443" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>interested in family history;<br/>wants to leave that all behind</td>
+
+<td  title="n=301;1291" >0.07I</td>
+
+<td  title="n=260;1332" >0.11N</td>
+
+<td  title="n=804;788" >0.29T</td>
+
+<td  title="n=911;681" >0.21P</td>
+
+</tr>
+
+<tr>
+
+<td>how it is done matters;<br/>only the end results matters</td>
+
+<td  title="n=319;1036" >0.04E</td>
+
+<td  title="n=204;1151" >0.11S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=571;784" >0.45T</td>
+
+<td  title="n=830;525" >0.12P</td>
+
+</tr>
+
+<tr>
+
+<td>jokes about things;<br/>jokes about people</td>
+
+<td  style="background-color:#FFB6C1;" title="n=309;1249" >0.39E</td>
+
+<td  title="n=235;1323" >0.07S</td>
+
+<td  title="n=718;840" >0.23T</td>
+
+<td  title="n=930;628" >0.06P</td>
+
+</tr>
+
+<tr>
+
+<td>plans far ahead;<br/>plans at the last minute</td>
+
+<td  title="n=5683;20936" >0.30E</td>
+
+<td  title="n=4421;22198" >0.04S</td>
+
+<td  title="n=12723;13896" >0.29F</td>
+
+<td  style="background-color:#FF4500;" title="n=15597;11022" >1.26P</td>
+
+</tr>
+
+<tr>
+
+<td>gets broken up with;<br/>does the breaking up</td>
+
+<td  style="background-color:#FFB6C1;" title="n=320;1040" >0.37E</td>
+
+<td  title="n=204;1156" >0.10N</td>
+
+<td  title="n=574;786" >0.33T</td>
+
+<td  title="n=832;528" >0.20J</td>
+
+</tr>
+
+<tr>
+
+<td>likes change;<br/>resists change</td>
+
+<td  style="background-color:#FFB6C1;" title="n=385;1410" >0.53I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=301;1494" >0.38S</td>
+
+<td  title="n=833;962" >0.05F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1062;733" >0.37J</td>
+
+</tr>
+
+<tr>
+
+<td>eats quickly;<br/>savours the flavour</td>
+
+<td  title="n=301;1291" >0.22I</td>
+
+<td  title="n=262;1330" >0.04N</td>
+
+<td  title="n=808;784" >0.13F</td>
+
+<td  title="n=913;679" >0.09J</td>
+
+</tr>
+
+<tr>
+
+<td>finds the world interesting;<br/>finds the world boring</td>
+
+<td  title="n=320;1036" >0.25I</td>
+
+<td  title="n=203;1153" >0.10S</td>
+
+<td  title="n=574;782" >0.17T</td>
+
+<td  title="n=830;526" >0.07J</td>
+
+</tr>
+
+<tr>
+
+<td>likes popular music;<br/>likes music that is not well known</td>
+
+<td  style="background-color:#FFB6C1;" title="n=261;805" >0.42I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=189;877" >0.43N</td>
+
+<td  title="n=463;603" >0.21T</td>
+
+<td  title="n=623;443" >0.24P</td>
+
+</tr>
+
+<tr>
+
+<td>remembers everything they did on their birthday before last;<br/>remembers not so much</td>
+
+<td  style="background-color:#FFB6C1;" title="n=413;1286" >0.39I</td>
+
+<td  title="n=266;1433" >0.29N</td>
+
+<td  title="n=797;902" >0.18T</td>
+
+<td  title="n=984;715" >0.19P</td>
+
+</tr>
+
+<tr>
+
+<td>careful with money;<br/>a high roller</td>
+
+<td  style="background-color:#FFB6C1;" title="n=256;996" >0.42E</td>
+
+<td  title="n=219;1033" >0.06N</td>
+
+<td  title="n=571;681" >0.28F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=678;574" >0.56P</td>
+
+</tr>
+
+<tr>
+
+<td>has an accurate internal clock;<br/>often has no idea what time it is</td>
+
+<td  title="n=911;2915" >0.03I</td>
+
+<td  title="n=646;3180" >0.08N</td>
+
+<td  title="n=1804;2022" >0.16F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2307;1519" >0.59P</td>
+
+</tr>
+
+<tr>
+
+<td>supports a strong government;<br/>supports strong personal freedoms</td>
+
+<td  title="n=907;2914" >0.08I</td>
+
+<td  title="n=644;3177" >0.18N</td>
+
+<td  title="n=1802;2019" >0.02F</td>
+
+<td  title="n=2306;1515" >0.31P</td>
+
+</tr>
+
+<tr>
+
+<td>judges a painting on how realistic it is;<br/>judges a painting by deeper criteria</td>
+
+<td  title="n=310;1249" >0.02I</td>
+
+<td  style="background-color:#FFA07A;" title="n=234;1325" >0.74N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=719;840" >0.51F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=930;629" >0.38P</td>
+
+</tr>
+
+<tr>
+
+<td>gets worn out by parties;<br/>gets fired up by parties</td>
+
+<td  style="background-color:#FF4500;" title="n=3333;11189" >1.77E</td>
+
+<td  title="n=2353;12169" >0.20S</td>
+
+<td  title="n=6790;7732" >0.21F</td>
+
+<td  title="n=8556;5966" >0.35P</td>
+
+</tr>
+
+<tr>
+
+<td>tries to give convincing speeches;<br/>tries to give inspiring speeches</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1641;5232" >0.39E</td>
+
+<td  title="n=1115;5758" >0.28N</td>
+
+<td  style="background-color:#FFA07A;" title="n=3177;3696" >1.04F</td>
+
+<td  title="n=4117;2756" >0.33P</td>
+
+</tr>
+
+<tr>
+
+<td>loyal to friends;<br/>loyal to family</td>
+
+<td  title="n=304;1185" >0.04I</td>
+
+<td  title="n=224;1265" >0.15S</td>
+
+<td  title="n=719;770" >0.04T</td>
+
+<td  title="n=867;622" >0.27J</td>
+
+</tr>
+
+<tr>
+
+<td>will say \"these are the things I have made\";<br/>will say \"these are the things I have designed\"</td>
+
+<td  title="n=301;1293" >0.06I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=261;1333" >0.46N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=807;787" >0.43T</td>
+
+<td  title="n=912;682" >0.11J</td>
+
+</tr>
+
+<tr>
+
+<td>likes getting gifts;<br/>has no need for gifts</td>
+
+<td  title="n=319;1040" >0.30I</td>
+
+<td  title="n=204;1155" >0.23N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=574;785" >0.58T</td>
+
+<td  title="n=831;528" >0.22J</td>
+
+</tr>
+
+<tr>
+
+<td>cheerful;<br/>gloomy</td>
+
+<td  style="background-color:#FFA07A;" title="n=304;1185" >0.91I</td>
+
+<td  title="n=224;1265" >0.18N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=719;770" >0.44T</td>
+
+<td  title="n=867;622" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>prefers the old ways;<br/>tries new ways</td>
+
+<td  style="background-color:#FFB6C1;" title="n=741;2445" >0.44E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=487;2699" >0.55N</td>
+
+<td  title="n=1507;1679" >0.15T</td>
+
+<td  title="n=1841;1345" >0.33P</td>
+
+</tr>
+
+<tr>
+
+<td>wants aliens to exist;<br/>hopes that they do not</td>
+
+<td  title="n=1691;7149" >0.18E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1513;7327" >0.43S</td>
+
+<td  title="n=4386;4454" >0.13F</td>
+
+<td  title="n=5161;3679" >0.26J</td>
+
+</tr>
+
+<tr>
+
+<td>wishes they could read minds;<br/>wishes they could fly</td>
+
+<td  title="n=909;2914" >0.09E</td>
+
+<td  title="n=643;3180" >0.03N</td>
+
+<td  title="n=1804;2019" >0.25F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2302;1521" >0.38P</td>
+
+</tr>
+
+<tr>
+
+<td>impatient;<br/>tolerant</td>
+
+<td  title="n=304;1183" >0.19I</td>
+
+<td  title="n=224;1263" >0.12S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=718;769" >0.40F</td>
+
+<td  title="n=865;622" >0.12P</td>
+
+</tr>
+
+<tr>
+
+<td>jittery;<br/>smooth</td>
+
+<td  title="n=302;1184" >0.23E</td>
+
+<td  title="n=224;1262" >0.07N</td>
+
+<td  title="n=717;769" >0.27T</td>
+
+<td  title="n=866;620" >0.19J</td>
+
+</tr>
+
+<tr>
+
+<td>well dressed;<br/>scruffy</td>
+
+<td  title="n=309;1250" >0.31I</td>
+
+<td  title="n=235;1324" >0.05N</td>
+
+<td  title="n=719;840" >0.07T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=931;628" >0.40P</td>
+
+</tr>
+
+<tr>
+
+<td>never wants to make a mistake;<br/>accepts mistakes as inevitable</td>
+
+<td  style="background-color:#FFB6C1;" title="n=907;2915" >0.41E</td>
+
+<td  title="n=646;3176" >0.17N</td>
+
+<td  title="n=1803;2019" >0.03T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2302;1520" >0.58P</td>
+
+</tr>
+
+<tr>
+
+<td>chooses carefully;<br/>chooses randomly</td>
+
+<td  style="background-color:#FFB6C1;" title="n=346;1193" >0.39E</td>
+
+<td  title="n=232;1307" >0.05S</td>
+
+<td  title="n=716;823" >0.34F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=864;675" >0.66P</td>
+
+</tr>
+
+<tr>
+
+<td>eats slowly;<br/>eats rapidly</td>
+
+<td  title="n=909;2912" >0.22E</td>
+
+<td  title="n=644;3177" >0.02S</td>
+
+<td  title="n=1803;2018" >0.03T</td>
+
+<td  title="n=2300;1521" >0.03P</td>
+
+</tr>
+
+<tr>
+
+<td>people are basically good;<br/>people are basically evil</td>
+
+<td  title="n=303;1183" >0.34I</td>
+
+<td  title="n=223;1263" >0.03N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=717;769" >0.65T</td>
+
+<td  title="n=865;621" >0.17J</td>
+
+</tr>
+
+<tr>
+
+<td>interests often change;<br/>has stable interests</td>
+
+<td  title="n=1902;6032" >0.35I</td>
+
+<td  title="n=1300;6634" >0.21S</td>
+
+<td  title="n=3633;4301" >0.15T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4735;3199" >0.63J</td>
+
+</tr>
+
+<tr>
+
+<td>thinks people can change;<br/>thinks people will only stay the same</td>
+
+<td  title="n=309;1250" >0.24I</td>
+
+<td  title="n=235;1324" >0.06S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=718;841" >0.59T</td>
+
+<td  title="n=930;629" >0.34J</td>
+
+</tr>
+
+<tr>
+
+<td>finds it difficult to yell very loudly;<br/>yelling to others when they are far away comes naturally</td>
+
+<td  style="background-color:#FF4500;" title="n=5428;20121" >1.40E</td>
+
+<td  title="n=4232;21317" >0.11S</td>
+
+<td  title="n=12256;13293" >0.05F</td>
+
+<td  title="n=14972;10577" >0.18P</td>
+
+</tr>
+
+<tr>
+
+<td>tries to behave intelligently;<br/>tries to show their creativity</td>
+
+<td  title="n=538;1613" >0.27E</td>
+
+<td  title="n=367;1784" >0.14N</td>
+
+<td  style="background-color:#FFA07A;" title="n=1055;1096" >0.90F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1241;910" >0.52P</td>
+
+</tr>
+
+<tr>
+
+<td>wants a big house;<br/>wants a cozy house</td>
+
+<td  style="background-color:#FFB6C1;" title="n=413;1286" >0.52I</td>
+
+<td  title="n=266;1433" >0.07N</td>
+
+<td  title="n=797;902" >0.33F</td>
+
+<td  title="n=985;714" >0.02J</td>
+
+</tr>
+
+<tr>
+
+<td>works hard;<br/>plays hard</td>
+
+<td  title="n=6428;23394" >0.31E</td>
+
+<td  title="n=4911;24911" >0.02S</td>
+
+<td  title="n=14236;15586" >0.21F</td>
+
+<td  style="background-color:#FFA07A;" title="n=17444;12378" >0.82P</td>
+
+</tr>
+
+<tr>
+
+<td>feels that time passes to slowly;<br/>feels that time passes to quickly</td>
+
+<td  title="n=308;1250" >0.06E</td>
+
+<td  title="n=235;1323" >0.01S</td>
+
+<td  title="n=719;839" >0.09F</td>
+
+<td  title="n=931;627" >0.11P</td>
+
+</tr>
+
+<tr>
+
+<td>aware of surroundings;<br/>easy to sneak up on</td>
+
+<td  title="n=397;1256" >0.02E</td>
+
+<td  title="n=255;1398" >0.01S</td>
+
+<td  title="n=793;860" >0.32F</td>
+
+<td  title="n=979;674" >0.29P</td>
+
+</tr>
+
+<tr>
+
+<td>serious;<br/>silly</td>
+
+<td  style="background-color:#FFB6C1;" title="n=304;1185" >0.64E</td>
+
+<td  title="n=224;1265" >0.03S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=718;771" >0.51F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=868;621" >0.58P</td>
+
+</tr>
+
+<tr>
+
+<td>enjoys cracking joints;<br/>cracking joints is gross</td>
+
+<td  title="n=411;1285" >0.19I</td>
+
+<td  title="n=265;1431" >0.04S</td>
+
+<td  title="n=795;901" >0.16F</td>
+
+<td  title="n=982;714" >0.31J</td>
+
+</tr>
+
+<tr>
+
+<td>tries to give inspiring speeches;<br/>tries to give convincing speeches</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3095;12191" >0.38I</td>
+
+<td  title="n=2555;12731" >0.18S</td>
+
+<td  style="background-color:#FFA07A;" title="n=7446;7840" >0.99T</td>
+
+<td  title="n=8873;6413" >0.17J</td>
+
+</tr>
+
+<tr>
+
+<td>identifies with characters in stories;<br/>never really seems to like any fictional characters</td>
+
+<td  title="n=259;806" >0.06E</td>
+
+<td  title="n=188;877" >0.28S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=464;601" >0.49T</td>
+
+<td  title="n=623;442" >0.12J</td>
+
+</tr>
+
+<tr>
+
+<td>wants to be tough;<br/>wants to be classy</td>
+
+<td  title="n=410;1288" >0.13E</td>
+
+<td  title="n=265;1433" >0.06N</td>
+
+<td  title="n=795;903" >0.25F</td>
+
+<td  title="n=985;713" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>sees the glass as glass half full;<br/>sees it as half empty</td>
+
+<td  style="background-color:#FFA07A;" title="n=539;1613" >0.71I</td>
+
+<td  title="n=367;1785" >0.03N</td>
+
+<td  title="n=1054;1098" >0.35T</td>
+
+<td  title="n=1242;910" >0.05J</td>
+
+</tr>
+
+<tr>
+
+<td>needs time alone;<br/>bored by time alone</td>
+
+<td  style="background-color:#FF4500;" title="n=6432;23383" >1.44E</td>
+
+<td  title="n=4911;24904" >0.18S</td>
+
+<td  title="n=14236;15579" >0.18F</td>
+
+<td  title="n=17437;12378" >0.22P</td>
+
+</tr>
+
+<tr>
+
+<td>wants the details;<br/>wants the big picture</td>
+
+<td  title="n=3784;14886" >0.32E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3118;15552" >0.57N</td>
+
+<td  title="n=9084;9586" >0.05T</td>
+
+<td  title="n=10846;7824" >0.25P</td>
+
+</tr>
+
+<tr>
+
+<td>has meaningful dreams;<br/>has dreams that make no sense, about things that do not matter</td>
+
+<td  title="n=260;805" >0.03I</td>
+
+<td  title="n=188;877" >0.14S</td>
+
+<td  title="n=464;601" >0.29T</td>
+
+<td  title="n=622;443" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>always looks for the best price;<br/>takes the first price</td>
+
+<td  title="n=388;1408" >0.08E</td>
+
+<td  title="n=301;1495" >0.09N</td>
+
+<td  title="n=834;962" >0.25F</td>
+
+<td  title="n=1062;734" >0.28P</td>
+
+</tr>
+
+<tr>
+
+<td>likes to perform in front of other people;<br/>avoids public speaking</td>
+
+<td  style="background-color:#FF4500;" title="n=256;997" >1.41I</td>
+
+<td  title="n=219;1034" >0.10S</td>
+
+<td  title="n=571;682" >0.04T</td>
+
+<td  title="n=679;574" >0.05J</td>
+
+</tr>
+
+<tr>
+
+<td>wants honest friends;<br/>wants impressive friends</td>
+
+<td  title="n=320;1039" >0.20E</td>
+
+<td  title="n=203;1156" >0.04N</td>
+
+<td  title="n=575;784" >0.23T</td>
+
+<td  title="n=832;527" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>wants to be normal;<br/>wants to be different</td>
+
+<td  title="n=397;1255" >0.24E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=255;1397" >0.51N</td>
+
+<td  title="n=792;860" >0.01T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=978;674" >0.39P</td>
+
+</tr>
+
+<tr>
+
+<td>takes stuff to mellow out;<br/>takes stuff to amp up</td>
+
+<td  title="n=297;1286" >0.28E</td>
+
+<td  title="n=260;1323" >0.25S</td>
+
+<td  title="n=801;782" >0.07T</td>
+
+<td  title="n=904;679" >0.03P</td>
+
+</tr>
+
+<tr>
+
+<td>stays at home;<br/>goes out on the town</td>
+
+<td  style="background-color:#FF4500;" title="n=6085;22195" >1.43E</td>
+
+<td  title="n=4676;23604" >0.05S</td>
+
+<td  title="n=13526;14754" >0.18F</td>
+
+<td  title="n=16576;11704" >0.26P</td>
+
+</tr>
+
+<tr>
+
+<td>likes civilization;<br/>wants to get back to nature</td>
+
+<td  style="background-color:#FFB6C1;" title="n=537;1615" >0.36I</td>
+
+<td  title="n=368;1784" >0.25N</td>
+
+<td  title="n=1054;1098" >0.30F</td>
+
+<td  title="n=1242;910" >0.21P</td>
+
+</tr>
+
+<tr>
+
+<td>values emotions;<br/>uncomfortable with emotions</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4134;16083" >0.55I</td>
+
+<td  title="n=3351;16866" >0.03N</td>
+
+<td  style="background-color:#FF4500;" title="n=9804;10413" >1.67T</td>
+
+<td  title="n=11717;8500" >0.22J</td>
+
+</tr>
+
+<tr>
+
+<td>likes to drive fast;<br/>likes to keep it under control</td>
+
+<td  style="background-color:#FFB6C1;" title="n=304;1181" >0.64I</td>
+
+<td  title="n=224;1261" >0.11N</td>
+
+<td  title="n=716;769" >0.07F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=864;621" >0.47J</td>
+
+</tr>
+
+<tr>
+
+<td>worries about who they are;<br/>accepts who they are</td>
+
+<td  title="n=908;2911" >0.33E</td>
+
+<td  title="n=644;3175" >0.09N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1800;2019" >0.44T</td>
+
+<td  title="n=2302;1517" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>frequently embarrassed;<br/>shameless</td>
+
+<td  style="background-color:#FFA07A;" title="n=3398;13477" >0.93E</td>
+
+<td  title="n=2812;14063" >0.10N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=8249;8626" >0.37T</td>
+
+<td  title="n=9787;7088" >0.13P</td>
+
+</tr>
+
+<tr>
+
+<td>needs silence to sleep;<br/>can sleep through anything</td>
+
+<td  style="background-color:#FFB6C1;" title="n=579;1843" >0.58E</td>
+
+<td  title="n=392;2030" >0.10S</td>
+
+<td  title="n=1038;1384" >0.06T</td>
+
+<td  title="n=1455;967" >0.23P</td>
+
+</tr>
+
+<tr>
+
+<td>shows anger;<br/>hides anger</td>
+
+<td  style="background-color:#FFB6C1;" title="n=909;2915" >0.64I</td>
+
+<td  title="n=646;3178" >0.11N</td>
+
+<td  title="n=1803;2021" >0.22T</td>
+
+<td  title="n=2306;1518" >0.05J</td>
+
+</tr>
+
+<tr>
+
+<td>ambitious;<br/>rebellious</td>
+
+<td  title="n=301;1291" >0.09I</td>
+
+<td  title="n=260;1332" >0.01S</td>
+
+<td  title="n=805;787" >0.14F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=910;682" >0.66P</td>
+
+</tr>
+
+<tr>
+
+<td>remembers dreams;<br/>does not</td>
+
+<td  title="n=911;2915" >0.08I</td>
+
+<td  title="n=645;3181" >0.30S</td>
+
+<td  title="n=1806;2020" >0.28T</td>
+
+<td  title="n=2305;1521" >0.03P</td>
+
+</tr>
+
+<tr>
+
+<td>likes team sports;<br/>likes individual sports</td>
+
+<td  style="background-color:#FFA07A;" title="n=907;2912" >0.80I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=644;3175" >0.37N</td>
+
+<td  title="n=1800;2019" >0.31T</td>
+
+<td  title="n=2302;1517" >0.09J</td>
+
+</tr>
+
+<tr>
+
+<td>trendy;<br/>hardcore</td>
+
+<td  title="n=301;1289" >0.12I</td>
+
+<td  title="n=261;1329" >0.07N</td>
+
+<td  title="n=805;785" >0.29T</td>
+
+<td  title="n=911;679" >0.02P</td>
+
+</tr>
+
+<tr>
+
+<td>bounces around the room;<br/>remains calm</td>
+
+<td  style="background-color:#FF4500;" title="n=320;1039" >1.31I</td>
+
+<td  title="n=204;1155" >0.03N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=574;785" >0.44T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=832;527" >0.50J</td>
+
+</tr>
+
+<tr>
+
+<td>likes stories with lots of action;<br/>likes stories with lots of twists</td>
+
+<td  title="n=539;1614" >0.26I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=368;1785" >0.51N</td>
+
+<td  title="n=1055;1098" >0.03F</td>
+
+<td  title="n=1243;910" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>thinks some people are all bad;<br/>knows everyone has a little bit of good in them</td>
+
+<td  style="background-color:#FFB6C1;" title="n=256;996" >0.43E</td>
+
+<td  title="n=219;1033" >0.11N</td>
+
+<td  style="background-color:#FFA07A;" title="n=571;681" >0.78F</td>
+
+<td  title="n=678;574" >0.23P</td>
+
+</tr>
+
+<tr>
+
+<td>likes certain types of music;<br/>likes all types</td>
+
+<td  title="n=256;997" >0.29E</td>
+
+<td  title="n=219;1034" >0.03N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=571;682" >0.37F</td>
+
+<td  title="n=679;574" >0.16P</td>
+
+</tr>
+
+<tr>
+
+<td>worries about getting let down;<br/>worries about letting other people down</td>
+
+<td  title="n=909;2917" >0.09E</td>
+
+<td  title="n=645;3181" >0.10S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1806;2020" >0.42F</td>
+
+<td  title="n=2305;1521" >0.10P</td>
+
+</tr>
+
+<tr>
+
+<td>brave;<br/>careful</td>
+
+<td  style="background-color:#FFA07A;" title="n=304;1184" >0.77I</td>
+
+<td  title="n=223;1265" >0.23S</td>
+
+<td  title="n=719;769" >0.02T</td>
+
+<td  title="n=867;621" >0.15J</td>
+
+</tr>
+
+<tr>
+
+<td>hates people who show off;<br/>maybe a little impressed by people who show off</td>
+
+<td  style="background-color:#FFB6C1;" title="n=410;1286" >0.51E</td>
+
+<td  title="n=264;1432" >0.02N</td>
+
+<td  title="n=796;900" >0.24F</td>
+
+<td  title="n=984;712" >0.27P</td>
+
+</tr>
+
+<tr>
+
+<td>enjoys mental competition;<br/>enjoys physical competition</td>
+
+<td  style="background-color:#FFB6C1;" title="n=255;997" >0.42E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=219;1033" >0.47S</td>
+
+<td  title="n=570;682" >0.18F</td>
+
+<td  title="n=678;574" >0.07P</td>
+
+</tr>
+
+<tr>
+
+<td>stays up late;<br/>rises early</td>
+
+<td  title="n=412;1286" >0.06E</td>
+
+<td  title="n=265;1433" >0.14S</td>
+
+<td  title="n=797;901" >0.15T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=984;714" >0.48J</td>
+
+</tr>
+
+<tr>
+
+<td>often mistaken as being angry;<br/>anger often goes unnoticed by others</td>
+
+<td  title="n=260;807" >0.09E</td>
+
+<td  title="n=189;878" >0.07S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=464;603" >0.40F</td>
+
+<td  title="n=624;443" >0.21P</td>
+
+</tr>
+
+<tr>
+
+<td>cooperative;<br/>competitive</td>
+
+<td  title="n=1690;7149" >0.28E</td>
+
+<td  title="n=1511;7328" >0.13N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4386;4453" >0.64T</td>
+
+<td  title="n=5161;3678" >0.10J</td>
+
+</tr>
+
+<tr>
+
+<td>fears death;<br/>accepts death</td>
+
+<td  title="n=256;997" >0.03I</td>
+
+<td  title="n=219;1034" >0.27N</td>
+
+<td  title="n=571;682" >0.29T</td>
+
+<td  title="n=679;574" >0.10J</td>
+
+</tr>
+
+<tr>
+
+<td>passive;<br/>aggressive</td>
+
+<td  style="background-color:#FFA07A;" title="n=303;1185" >0.86E</td>
+
+<td  title="n=223;1265" >0.04N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=718;770" >0.37T</td>
+
+<td  title="n=867;621" >0.13J</td>
+
+</tr>
+
+<tr>
+
+<td>creative;<br/>wise</td>
+
+<td  title="n=298;1291" >0.14I</td>
+
+<td  title="n=262;1327" >0.09S</td>
+
+<td  title="n=805;784" >0.33T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=910;679" >0.46J</td>
+
+</tr>
+
+<tr>
+
+<td>makes repairs;<br/>buys new</td>
+
+<td  title="n=255;996" >0.23E</td>
+
+<td  title="n=219;1032" >0.11S</td>
+
+<td  title="n=570;681" >0.12F</td>
+
+<td  title="n=679;572" >0.13P</td>
+
+</tr>
+
+<tr>
+
+<td>has an average taste in music;<br/>has superior taste in music</td>
+
+<td  title="n=1690;7145" >0.02E</td>
+
+<td  title="n=1510;7325" >0.21N</td>
+
+<td  title="n=4382;4453" >0.01T</td>
+
+<td  title="n=5158;3677" >0.14P</td>
+
+</tr>
+
+<tr>
+
+<td>reacts deliberately;<br/>reacts instantly</td>
+
+<td  style="background-color:#FFB6C1;" title="n=398;1253" >0.67E</td>
+
+<td  title="n=255;1396" >0.26S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=792;859" >0.36F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=977;674" >0.46P</td>
+
+</tr>
+
+<tr>
+
+<td>has many interests;<br/>has deep interests</td>
+
+<td  style="background-color:#FFA07A;" title="n=910;2915" >0.82I</td>
+
+<td  title="n=646;3179" >0.11N</td>
+
+<td  title="n=1806;2019" >0.08T</td>
+
+<td  title="n=2304;1521" >0.25J</td>
+
+</tr>
+
+<tr>
+
+<td>prefer to take multiple choice test;<br/>prefer essay answers</td>
+
+<td  title="n=4693;17802" >0.16E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=3768;18727" >0.47N</td>
+
+<td  title="n=10885;11610" >0.08F</td>
+
+<td  title="n=13150;9345" >0.01J</td>
+
+</tr>
+
+<tr>
+
+<td>has neat handwriting;<br/>has messy handwriting</td>
+
+<td  title="n=1691;7151" >0.02I</td>
+
+<td  title="n=1513;7329" >0.18N</td>
+
+<td  title="n=4388;4454" >0.14T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=5161;3681" >0.45P</td>
+
+</tr>
+
+<tr>
+
+<td>likes being on solid ground;<br/>dreams of the sea</td>
+
+<td  title="n=538;1614" >0.09E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=368;1784" >0.37N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1054;1098" >0.43F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1242;910" >0.51P</td>
+
+</tr>
+
+<tr>
+
+<td>bothered by spelling mistakes;<br/>is fine with spelling mistakes, as long as the meaning comes through</td>
+
+<td  title="n=912;2919" >0.26E</td>
+
+<td  title="n=647;3184" >0.11N</td>
+
+<td  title="n=1809;2022" >0.13F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2309;1522" >0.44P</td>
+
+</tr>
+
+<tr>
+
+<td>likes spring;<br/>likes fall</td>
+
+<td  style="background-color:#FFB6C1;" title="n=310;1251" >0.48I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=235;1326" >0.39N</td>
+
+<td  title="n=719;842" >0.24T</td>
+
+<td  title="n=931;630" >0.11J</td>
+
+</tr>
+
+<tr>
+
+<td>forever young;<br/>all grown up</td>
+
+<td  style="background-color:#FFB6C1;" title="n=310;1250" >0.45I</td>
+
+<td  title="n=235;1325" >0.05S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=718;842" >0.38T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=930;630" >0.66J</td>
+
+</tr>
+
+<tr>
+
+<td>passionate;<br/>jaded</td>
+
+<td  style="background-color:#FFB6C1;" title="n=310;1250" >0.56I</td>
+
+<td  title="n=234;1326" >0.02N</td>
+
+<td  style="background-color:#FFA07A;" title="n=719;841" >0.73T</td>
+
+<td  title="n=930;630" >0.21J</td>
+
+</tr>
+
+<tr>
+
+<td>poor sense of smell;<br/>good sense of smell</td>
+
+<td  title="n=1691;7146" >0.17E</td>
+
+<td  title="n=1512;7325" >0.06S</td>
+
+<td  title="n=4384;4453" >0.12F</td>
+
+<td  title="n=5160;3677" >0.02J</td>
+
+</tr>
+
+<tr>
+
+<td>easily hurt;<br/>thick-skinned</td>
+
+<td  title="n=6431;23396" >0.22E</td>
+
+<td  title="n=4908;24919" >0.08N</td>
+
+<td  style="background-color:#FF4500;" title="n=14237;15590" >1.10T</td>
+
+<td  title="n=17446;12381" >0.08J</td>
+
+</tr>
+
+<tr>
+
+<td>arrogant;<br/>insecure</td>
+
+<td  style="background-color:#FFB6C1;" title="n=388;1409" >0.54I</td>
+
+<td  title="n=301;1496" >0.10S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=833;964" >0.67F</td>
+
+<td  title="n=1062;735" >0.19P</td>
+
+</tr>
+
+<tr>
+
+<td>bonds over shared interests;<br/>bonds through shared experience</td>
+
+<td  style="background-color:#FFB6C1;" title="n=398;1257" >0.37E</td>
+
+<td  title="n=255;1400" >0.14S</td>
+
+<td  title="n=794;861" >0.26F</td>
+
+<td  title="n=980;675" >0.04J</td>
+
+</tr>
+
+<tr>
+
+<td>empirical;<br/>theoretical</td>
+
+<td  title="n=538;1611" >0.16I</td>
+
+<td  style="background-color:#FFA07A;" title="n=367;1782" >0.71N</td>
+
+<td  title="n=1054;1095" >0.11T</td>
+
+<td  title="n=1239;910" >0.22P</td>
+
+</tr>
+
+<tr>
+
+<td>envious of what other people have;<br/>envious of what other people are</td>
+
+<td  title="n=386;1409" >0.12I</td>
+
+<td  title="n=302;1493" >0.26N</td>
+
+<td  title="n=833;962" >0.14F</td>
+
+<td  title="n=1062;733" >0.10P</td>
+
+</tr>
+
+<tr>
+
+<td>often misplaces their keys;<br/>has a system so that does not happen</td>
+
+<td  title="n=539;1611" >0.20I</td>
+
+<td  title="n=367;1783" >0.14S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1053;1097" >0.43T</td>
+
+<td  style="background-color:#FFA07A;" title="n=1241;909" >0.80J</td>
+
+</tr>
+
+<tr>
+
+<td>keeps a clean room;<br/>just puts stuff where ever</td>
+
+<td  title="n=5681;20931" >0.05E</td>
+
+<td  title="n=4422;22190" >0.15N</td>
+
+<td  title="n=12723;13889" >0.19F</td>
+
+<td  style="background-color:#FFA07A;" title="n=15596;11016" >0.93P</td>
+
+</tr>
+
+<tr>
+
+<td>gets bored of songs quickly;<br/>never gets tired of a good song</td>
+
+<td  title="n=910;2913" >0.15I</td>
+
+<td  title="n=645;3178" >0.00S</td>
+
+<td  title="n=1804;2019" >0.18F</td>
+
+<td  title="n=2303;1520" >0.09J</td>
+
+</tr>
+
+<tr>
+
+<td>hates conflict;<br/>makes trouble</td>
+
+<td  style="background-color:#FFB6C1;" title="n=398;1257" >0.64E</td>
+
+<td  title="n=255;1400" >0.14N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=794;861" >0.52T</td>
+
+<td  title="n=980;675" >0.23P</td>
+
+</tr>
+
+<tr>
+
+<td>practical;<br/>dreamy</td>
+
+<td  title="n=1719;5452" >0.01I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1163;6008" >0.70N</td>
+
+<td  style="background-color:#FFA07A;" title="n=3395;3776" >0.88F</td>
+
+<td  style="background-color:#FFA07A;" title="n=4263;2908" >0.76P</td>
+
+</tr>
+
+<tr>
+
+<td>must be special;<br/>content to be normal</td>
+
+<td  title="n=261;809" >0.32I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=189;881" >0.46S</td>
+
+<td  title="n=466;604" >0.14T</td>
+
+<td  title="n=625;445" >0.27J</td>
+
+</tr>
+
+<tr>
+
+<td>prefers to be captain;<br/>rather be first mate</td>
+
+<td  style="background-color:#FFA07A;" title="n=397;1258" >1.02I</td>
+
+<td  title="n=255;1400" >0.21S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=793;862" >0.39F</td>
+
+<td  title="n=981;674" >0.19P</td>
+
+</tr>
+
+<tr>
+
+<td>does not vary diet;<br/>tries new foods</td>
+
+<td  style="background-color:#FFB6C1;" title="n=260;803" >0.59E</td>
+
+<td  title="n=188;875" >0.26N</td>
+
+<td  title="n=463;600" >0.15F</td>
+
+<td  title="n=621;442" >0.21P</td>
+
+</tr>
+
+<tr>
+
+<td>knows what they want;<br/>still trying to figure it all out</td>
+
+<td  style="background-color:#FFB6C1;" title="n=320;1037" >0.39I</td>
+
+<td  title="n=203;1154" >0.25S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=575;782" >0.39F</td>
+
+<td  style="background-color:#FFA07A;" title="n=832;525" >0.76P</td>
+
+</tr>
+
+<tr>
+
+<td>gives complements;<br/>receives compliments</td>
+
+<td  title="n=387;1407" >0.13I</td>
+
+<td  title="n=301;1493" >0.00N</td>
+
+<td  style="background-color:#FFA07A;" title="n=834;960" >0.74T</td>
+
+<td  title="n=1060;734" >0.02P</td>
+
+</tr>
+
+<tr>
+
+<td>likes to \"just drive\";<br/>would never drive without a purpose</td>
+
+<td  title="n=320;1039" >0.31I</td>
+
+<td  title="n=204;1155" >0.06N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=575;784" >0.49T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=832;527" >0.63J</td>
+
+</tr>
+
+<tr>
+
+<td>thinks about what they would do as a criminal;<br/>does not like the idea of crime</td>
+
+<td  title="n=412;1287" >0.03I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=266;1433" >0.47S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=796;903" >0.51F</td>
+
+<td  title="n=985;714" >0.34J</td>
+
+</tr>
+
+<tr>
+
+<td>wants deep friendships;<br/>wants many friendships</td>
+
+<td  style="background-color:#FFA07A;" title="n=2646;8485" >0.77E</td>
+
+<td  title="n=1788;9343" >0.11S</td>
+
+<td  title="n=5146;5985" >0.08T</td>
+
+<td  title="n=6580;4551" >0.15P</td>
+
+</tr>
+
+<tr>
+
+<td>scheduled;<br/>spontaneous</td>
+
+<td  style="background-color:#FFB6C1;" title="n=398;1255" >0.57E</td>
+
+<td  title="n=253;1400" >0.34N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=792;861" >0.35F</td>
+
+<td  style="background-color:#FF4500;" title="n=979;674" >1.17P</td>
+
+</tr>
+
+<tr>
+
+<td>steady;<br/>unstable</td>
+
+<td  title="n=256;997" >0.19I</td>
+
+<td  title="n=219;1034" >0.16N</td>
+
+<td  title="n=571;682" >0.34F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=679;574" >0.56P</td>
+
+</tr>
+
+<tr>
+
+<td>prefer to run a small business;<br/>prefer to run a large corporation</td>
+
+<td  style="background-color:#FFB6C1;" title="n=320;1038" >0.64E</td>
+
+<td  title="n=204;1154" >0.07N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=574;784" >0.63T</td>
+
+<td  title="n=832;526" >0.07J</td>
+
+</tr>
+
+<tr>
+
+<td>rises early;<br/>sleeps late</td>
+
+<td  title="n=910;2913" >0.10I</td>
+
+<td  title="n=644;3179" >0.08N</td>
+
+<td  title="n=1803;2020" >0.10F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2307;1516" >0.58P</td>
+
+</tr>
+
+<tr>
+
+<td>bothered by disgusting things;<br/>fails to notice how gross things are</td>
+
+<td  title="n=320;1039" >0.11E</td>
+
+<td  title="n=204;1155" >0.23N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=574;785" >0.42T</td>
+
+<td  title="n=832;527" >0.34P</td>
+
+</tr>
+
+<tr>
+
+<td>starts over when they fail;<br/>tries something new when they fail</td>
+
+<td  title="n=385;1405" >0.30E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=302;1488" >0.36N</td>
+
+<td  title="n=828;962" >0.02F</td>
+
+<td  title="n=1060;730" >0.31P</td>
+
+</tr>
+
+<tr>
+
+<td>prefer to read the news;<br/>prefer to read a story</td>
+
+<td  title="n=1690;7146" >0.19I</td>
+
+<td  title="n=1512;7324" >0.01N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4385;4451" >0.43F</td>
+
+<td  title="n=5157;3679" >0.24P</td>
+
+</tr>
+
+<tr>
+
+<td>likes to tell stories;<br/>like to listen to stories</td>
+
+<td  style="background-color:#FFA07A;" title="n=1099;3981" >0.96I</td>
+
+<td  title="n=827;4253" >0.05S</td>
+
+<td  title="n=2433;2647" >0.14T</td>
+
+<td  title="n=2955;2125" >0.13J</td>
+
+</tr>
+
+<tr>
+
+<td>always looking to taste something new;<br/>could eat the same thing every day</td>
+
+<td  style="background-color:#FFB6C1;" title="n=301;1290" >0.51I</td>
+
+<td  title="n=261;1330" >0.28S</td>
+
+<td  title="n=804;787" >0.03T</td>
+
+<td  title="n=910;681" >0.33J</td>
+
+</tr>
+
+<tr>
+
+<td>likes sports;<br/>bored by sports</td>
+
+<td  style="background-color:#FFA07A;" title="n=1578;5005" >0.70I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1098;5485" >0.39N</td>
+
+<td  title="n=3062;3521" >0.03F</td>
+
+<td  title="n=3911;2672" >0.10P</td>
+
+</tr>
+
+<tr>
+
+<td>hates being photographed;<br/>loves it</td>
+
+<td  style="background-color:#FF4500;" title="n=412;1288" >1.06E</td>
+
+<td  title="n=266;1434" >0.25S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=796;904" >0.44F</td>
+
+<td  title="n=986;714" >0.21P</td>
+
+</tr>
+
+<tr>
+
+<td>wants to be good at fixing things;<br/>wants to be good at fixing people</td>
+
+<td  style="background-color:#FFB6C1;" title="n=304;1185" >0.40E</td>
+
+<td  title="n=224;1265" >0.04S</td>
+
+<td  style="background-color:#FF4500;" title="n=718;771" >1.28F</td>
+
+<td  title="n=867;622" >0.10P</td>
+
+</tr>
+
+<tr>
+
+<td>works in fits and bursts;<br/>works through it steadily</td>
+
+<td  title="n=304;1185" >0.23I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=224;1265" >0.38S</td>
+
+<td  title="n=719;770" >0.30T</td>
+
+<td  style="background-color:#FFA07A;" title="n=867;622" >0.84J</td>
+
+</tr>
+
+<tr>
+
+<td>open;<br/>guarded</td>
+
+<td  style="background-color:#FF4500;" title="n=388;1406" >1.41I</td>
+
+<td  title="n=302;1492" >0.04N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=832;962" >0.67T</td>
+
+<td  title="n=1061;733" >0.33J</td>
+
+</tr>
+
+<tr>
+
+<td>tries a sensible solution;<br/>tries a clever solution</td>
+
+<td  title="n=5496;20332" >0.32E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4279;21549" >0.63N</td>
+
+<td  title="n=12464;13364" >0.34T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=15105;10723" >0.36P</td>
+
+</tr>
+
+<tr>
+
+<td>leads from the front;<br/>manipulates things behind the scenes</td>
+
+<td  style="background-color:#FF4500;" title="n=387;1408" >1.16I</td>
+
+<td  title="n=301;1494" >0.27N</td>
+
+<td  title="n=833;962" >0.29T</td>
+
+<td  title="n=1063;732" >0.09J</td>
+
+</tr>
+
+<tr>
+
+<td>normal;<br/>alternative</td>
+
+<td  title="n=3484;13589" >0.08I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=2858;14215" >0.61N</td>
+
+<td  title="n=8273;8800" >0.02T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=9930;7143" >0.36P</td>
+
+</tr>
+
+<tr>
+
+<td>likes looking at pictures of them as a baby;<br/>hates that</td>
+
+<td  style="background-color:#FFB6C1;" title="n=319;1037" >0.52I</td>
+
+<td  title="n=203;1153" >0.14N</td>
+
+<td  style="background-color:#FFA07A;" title="n=572;784" >0.86T</td>
+
+<td  title="n=832;524" >0.10J</td>
+
+</tr>
+
+<tr>
+
+<td>reads the instructions first;<br/>jumps right into it</td>
+
+<td  style="background-color:#FFB6C1;" title="n=260;806" >0.57E</td>
+
+<td  title="n=189;877" >0.03N</td>
+
+<td  title="n=464;602" >0.18F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=623;443" >0.54P</td>
+
+</tr>
+
+<tr>
+
+<td>reckless;<br/>solid</td>
+
+<td  style="background-color:#FFB6C1;" title="n=301;1293" >0.40I</td>
+
+<td  title="n=262;1332" >0.10S</td>
+
+<td  title="n=807;787" >0.21T</td>
+
+<td  style="background-color:#FFA07A;" title="n=913;681" >0.87J</td>
+
+</tr>
+
+<tr>
+
+<td>feels most content at the start of the day;<br/>feels most content at the end of the day</td>
+
+<td  title="n=386;1409" >0.23I</td>
+
+<td  title="n=302;1493" >0.04N</td>
+
+<td  title="n=833;962" >0.17T</td>
+
+<td  title="n=1063;732" >0.11P</td>
+
+</tr>
+
+<tr>
+
+<td>would enjoy being stranded on an island;<br/>would want to be rescued as quickly as possible</td>
+
+<td  style="background-color:#FFA07A;" title="n=320;1039" >0.81E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=204;1155" >0.46S</td>
+
+<td  title="n=575;784" >0.30F</td>
+
+<td  title="n=832;527" >0.04P</td>
+
+</tr>
+
+<tr>
+
+<td>reflective;<br/>active</td>
+
+<td  style="background-color:#FFA07A;" title="n=346;1192" >1.00E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=232;1306" >0.40S</td>
+
+<td  title="n=715;823" >0.09T</td>
+
+<td  title="n=864;674" >0.03J</td>
+
+</tr>
+
+<tr>
+
+<td>does a good job handling the preparation;<br/>does a good job handling the fallout</td>
+
+<td  title="n=5099;19068" >0.30E</td>
+
+<td  title="n=4029;20138" >0.17N</td>
+
+<td  title="n=11677;12490" >0.05F</td>
+
+<td  style="background-color:#FFA07A;" title="n=14123;10044" >0.72P</td>
+
+</tr>
+
+<tr>
+
+<td>mysterious;<br/>reliable</td>
+
+<td  title="n=300;1291" >0.30E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=262;1329" >0.41S</td>
+
+<td  title="n=804;787" >0.06F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=912;679" >0.53J</td>
+
+</tr>
+
+<tr>
+
+<td>still in contact with first friends;<br/>loses touch with old friends</td>
+
+<td  style="background-color:#FFB6C1;" title="n=319;1039" >0.57I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=203;1155" >0.35N</td>
+
+<td  title="n=574;784" >0.30T</td>
+
+<td  title="n=832;526" >0.22P</td>
+
+</tr>
+
+<tr>
+
+<td>follows rules;<br/>breaks rules</td>
+
+<td  style="background-color:#FFB6C1;" title="n=398;1257" >0.37E</td>
+
+<td  style="background-color:#FFB6C1;" title="n=255;1400" >0.56N</td>
+
+<td  title="n=793;862" >0.24T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=981;674" >0.66P</td>
+
+</tr>
+
+<tr>
+
+<td>thinks \"robotic\" is an insult;<br/>strives to have a mechanical mind</td>
+
+<td  style="background-color:#FFB6C1;" title="n=6084;22197" >0.45I</td>
+
+<td  title="n=4674;23607" >0.02S</td>
+
+<td  style="background-color:#FF4500;" title="n=13523;14758" >1.21T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=16574;11707" >0.41J</td>
+
+</tr>
+
+<tr>
+
+<td>embarrassed by the things they daydream about;<br/>proud of the things they daydream about</td>
+
+<td  style="background-color:#FFB6C1;" title="n=318;1036" >0.46E</td>
+
+<td  title="n=204;1150" >0.31N</td>
+
+<td  title="n=572;782" >0.10T</td>
+
+<td  title="n=830;524" >0.19P</td>
+
+</tr>
+
+<tr>
+
+<td>puts time into choosing/preparing food;<br/>goes for whatever is simplest</td>
+
+<td  title="n=539;1614" >0.10I</td>
+
+<td  title="n=368;1785" >0.27S</td>
+
+<td  title="n=1055;1098" >0.17T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=1243;910" >0.45P</td>
+
+</tr>
+
+<tr>
+
+<td>has difficulty explaining their ideas;<br/>confident explaining their ideas</td>
+
+<td  style="background-color:#FFA07A;" title="n=539;1614" >1.02E</td>
+
+<td  title="n=368;1785" >0.26N</td>
+
+<td  title="n=1055;1098" >0.31T</td>
+
+<td  title="n=1242;911" >0.13J</td>
+
+</tr>
+
+<tr>
+
+<td>focuses on one thing at a time;<br/>multitasks</td>
+
+<td  style="background-color:#FFB6C1;" title="n=398;1254" >0.47E</td>
+
+<td  title="n=253;1399" >0.14N</td>
+
+<td  title="n=792;860" >0.04T</td>
+
+<td  title="n=977;675" >0.33P</td>
+
+</tr>
+
+<tr>
+
+<td>does their best;<br/>does what they need to get by</td>
+
+<td  title="n=256;995" >0.15I</td>
+
+<td  title="n=219;1032" >0.13S</td>
+
+<td  title="n=570;681" >0.17T</td>
+
+<td  style="background-color:#FFA07A;" title="n=678;573" >0.72P</td>
+
+</tr>
+
+<tr>
+
+<td>buys things they like;<br/>only buys things they really need</td>
+
+<td  title="n=1689;7150" >0.32I</td>
+
+<td  title="n=1512;7327" >0.15N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=4388;4451" >0.39T</td>
+
+<td  title="n=5161;3678" >0.35J</td>
+
+</tr>
+
+<tr>
+
+<td>obsessed with travelling;<br/>no need to see the world</td>
+
+<td  title="n=909;2916" >0.35I</td>
+
+<td  title="n=645;3180" >0.08S</td>
+
+<td  title="n=1803;2022" >0.22T</td>
+
+<td  title="n=2305;1520" >0.23J</td>
+
+</tr>
+
+<tr>
+
+<td>trusts personal experience;<br/>trusts theoretical knowledge</td>
+
+<td  title="n=346;1188" >0.30I</td>
+
+<td  style="background-color:#FFB6C1;" title="n=232;1302" >0.45N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=715;819" >0.68T</td>
+
+<td  title="n=860;674" >0.09J</td>
+
+</tr>
+
+<tr>
+
+<td>no need to see the world;<br/>obsessed with travelling</td>
+
+<td  style="background-color:#FFB6C1;" title="n=318;1039" >0.47E</td>
+
+<td  title="n=203;1154" >0.15N</td>
+
+<td  title="n=573;784" >0.25F</td>
+
+<td  title="n=831;526" >0.33P</td>
+
+</tr>
+
+<tr>
+
+<td>follows the heart;<br/>follows the head</td>
+
+<td  style="background-color:#FFB6C1;" title="n=6433;23383" >0.36I</td>
+
+<td  title="n=4912;24904" >0.01N</td>
+
+<td  style="background-color:#FF4500;" title="n=14240;15576" >1.60T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=17441;12375" >0.45J</td>
+
+</tr>
+
+<tr>
+
+<td>demands precision;<br/>satisfied with good enough</td>
+
+<td  title="n=412;1286" >0.25E</td>
+
+<td  title="n=265;1433" >0.12S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=795;903" >0.50F</td>
+
+<td  style="background-color:#FFB6C1;" title="n=985;713" >0.68P</td>
+
+</tr>
+
+<tr>
+
+<td>makes lists;<br/>relies on memory</td>
+
+<td  title="n=4198;16174" >0.06E</td>
+
+<td  title="n=3385;16987" >0.14N</td>
+
+<td  title="n=9881;10491" >0.13T</td>
+
+<td  style="background-color:#FFA07A;" title="n=11833;8539" >0.75P</td>
+
+</tr>
+
+<tr>
+
+<td>prefer to be wealthy;<br/>prefer to be famous</td>
+
+<td  style="background-color:#FFB6C1;" title="n=397;1255" >0.41E</td>
+
+<td  title="n=255;1397" >0.15N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=792;860" >0.36F</td>
+
+<td  title="n=981;671" >0.22P</td>
+
+</tr>
+
+<tr>
+
+<td>never edits their writing once they are done;<br/>always goes back and makes many revisions</td>
+
+<td  title="n=256;996" >0.16I</td>
+
+<td  title="n=219;1033" >0.06N</td>
+
+<td  title="n=570;682" >0.02T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=679;573" >0.41J</td>
+
+</tr>
+
+<tr>
+
+<td>mellow;<br/>energetic</td>
+
+<td  style="background-color:#FF4500;" title="n=5426;20127" >1.37E</td>
+
+<td  title="n=4233;21320" >0.05S</td>
+
+<td  title="n=12263;13290" >0.12F</td>
+
+<td  title="n=14970;10583" >0.14P</td>
+
+</tr>
+
+<tr>
+
+<td>tactful with others;<br/>blunt with others</td>
+
+<td  title="n=6819;24788" >0.02E</td>
+
+<td  title="n=5212;26395" >0.04N</td>
+
+<td  style="background-color:#FFA07A;" title="n=15066;16541" >0.86T</td>
+
+<td  title="n=18502;13105" >0.07J</td>
+
+</tr>
+
+<tr>
+
+<td>nervous;<br/>calm</td>
+
+<td  title="n=260;806" >0.28E</td>
+
+<td  title="n=188;878" >0.05S</td>
+
+<td  style="background-color:#FFB6C1;" title="n=465;601" >0.56T</td>
+
+<td  title="n=623;443" >0.03J</td>
+
+</tr>
+
+<tr>
+
+<td>likes music;<br/>likes the visual arts</td>
+
+<td  title="n=320;1040" >0.01I</td>
+
+<td  title="n=204;1156" >0.24N</td>
+
+<td  title="n=575;785" >0.06T</td>
+
+<td  title="n=832;528" >0.11P</td>
+
+</tr>
+
+<tr>
+
+<td>happy at home;<br/>obsessed with travelling</td>
+
+<td  style="background-color:#FFA07A;" title="n=260;801" >0.78E</td>
+
+<td  title="n=186;875" >0.09N</td>
+
+<td  title="n=463;598" >0.17F</td>
+
+<td  title="n=621;440" >0.32P</td>
+
+</tr>
+
+<tr>
+
+<td>bases morality on compassion;<br/>bases morality on justice</td>
+
+<td  title="n=6080;22184" >0.16I</td>
+
+<td  title="n=4677;23587" >0.02S</td>
+
+<td  style="background-color:#FF4500;" title="n=13514;14750" >1.32T</td>
+
+<td  style="background-color:#FFB6C1;" title="n=16571;11693" >0.39J</td>
+
+</tr>
+
+<tr>
+
+<td>okay;<br/>perfect</td>
+
+<td  style="background-color:#FFB6C1;" title="n=304;1184" >0.46E</td>
+
+<td  title="n=224;1264" >0.14N</td>
+
+<td  style="background-color:#FFB6C1;" title="n=718;770" >0.41T</td>
+
+<td  title="n=866;622" >0.28J</td>
+
+</tr>
+
+<tr>
+
+<td>judges a painting on how realistic it is;<br/>judges a painting on the feeling it conveys</td>
+
+<td  title="n=412;1282" >0.07E</td>
+
+<td  title="n=265;1429" >0.34N</td>
+
+<td  style="background-color:#FFA07A;" title="n=796;898" >0.84F</td>
+
+<td  title="n=981;713" >0.33P</td>
+
+</tr>
+
+<tr>
+
+<td>saves it;<br/>uses it</td>
+
+<td  style="background-color:#FFB6C1;" title="n=308;1250" >0.39E</td>
+
+<td  title="n=234;1324" >0.05N</td>
+
+<td  title="n=716;842" >0.18T</td>
+
+<td  title="n=930;628" >0.29P</td>
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+</tbody>
+
+</table>
+
+
+
+<h3 id="liscmark">Appendix B: License</h3>
+
+
+
+<div style="float:left; padding:5px;">
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+
+</div>
+
+The items of the OEJTS and all other content on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+
+
+</td>
+
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+

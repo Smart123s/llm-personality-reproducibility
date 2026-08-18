@@ -1,0 +1,29 @@
+{
+  "url": "https://openpsychometrics.org/tests/OJTS/development/",
+  "retrieved_utc": "2026-08-17T19:21:14.430956+00:00",
+  "http_status": 200,
+  "loaded_from": "outputs\\oejts_data\\oejts_development_page.html",
+  "parse_summary": {
+    "raw_rows": 298,
+    "parsed_rows_before_exact_deduplication": 297,
+    "malformed_rows": 1,
+    "exact_duplicates_removed": 0,
+    "usable_rows": 297,
+    "anchor_collision_rows": 2,
+    "analysis_eligible_rows": 295,
+    "defining_items_matched": 32,
+    "defining_source_rows_excluded": 35,
+    "defining_items_using_source_variant": 3
+  },
+  "source_reported_facts": {
+    "development_sample_n": 25568,
+    "candidate_pool_n": 278,
+    "retained_intermediate_n": 48,
+    "minimum_group_n_approx": 200,
+    "criterion_ci_percent": 95,
+    "retained_intermediate_per_scale": 12
+  },
+  "parsed_table_file": "oejts_screening_pool.csv",
+  "defining_items_file": "oejts_defining_items.csv",
+  "source_snapshot_file": "oejts_development_page.html"
+}

@@ -1,0 +1,298 @@
+source_row,left,right,s_IE,s_SN,s_FT,s_JP,anchor_collision,anchor_occurrences,analysis_eligible,is_defining,has_reversed_twin
+1,likes action,likes drama,-0.14,0.18,-0.49,0.21,False,1,True,False,False
+2,realistic,imaginative,0.12,0.63,-0.71,0.71,False,1,True,False,False
+3,criticism leads to feelings of guilt,criticism leads to feelings of anger,0.16,-0.08,0.56,-0.09,False,1,True,False,False
+4,loses track of time,good sense of time,0.19,-0.4,0.32,-0.83,False,1,True,False,False
+5,angry,resentful,-0.21,0.02,-0.0,-0.04,False,1,True,False,False
+6,wishes their life was more interesting,finds their life interesting enough,0.18,-0.14,0.13,-0.25,False,1,True,False,False
+7,talks over a decision with other people,makes it alone,-0.89,0.48,0.84,-0.04,False,1,True,False,False
+8,"when judging others, considers intent",only considers outcome,0.02,-0.25,0.64,-0.07,False,1,True,False,False
+9,makes things,breaks things,0.19,-0.12,0.02,0.36,False,1,True,False,False
+10,likes knowing all the facts,likes filling in the blanks,0.13,0.52,-0.38,0.58,False,1,True,False,False
+11,learns before doing,learns while doing,0.72,0.03,-0.26,0.65,False,1,True,False,False
+12,careful,extreme,0.73,0.18,0.02,0.65,False,1,True,False,False
+13,uses reason,uses instinct,0.37,0.33,-1.17,0.45,False,1,True,False,False
+14,learns by doing,learns by watching,-0.34,0.24,0.13,-0.1,False,1,True,False,False
+15,trusts personal experience,trusts theory,-0.26,0.37,0.67,0.04,False,1,True,False,False
+16,prepares,improvises,0.43,0.28,-0.15,1.43,False,1,True,True,False
+17,often thinks about what they should have done differently,does not second guess,0.46,-0.03,0.09,0.09,False,1,True,False,False
+18,likes small talk,hates small talk,-0.98,0.25,0.28,-0.15,False,1,True,False,False
+19,organized,chaotic,0.16,0.21,-0.25,1.15,False,1,True,True,False
+20,thinks role models are important,thinks the importance of role models is exaggerated,-0.45,0.02,0.62,0.2,False,1,True,False,False
+21,interested in realities,interested in possibilities,0.14,0.75,-0.36,0.42,False,1,True,False,False
+22,afraid of the dark,likes the dark,-0.26,0.27,0.54,0.01,False,1,True,False,False
+23,focused on the present,focused on the future,-0.04,0.72,0.1,-0.23,False,1,True,True,False
+24,focuses on the big picture,takes care of the little details,-0.3,-0.61,-0.1,-0.34,False,1,True,False,False
+25,wants to be treated right,just doesn't want to be treated wrong,-0.3,-0.0,0.28,0.25,False,1,True,False,False
+26,humble,can be a bit arrogant,0.37,0.24,0.68,-0.01,False,1,True,False,True
+27,wants a destiny,afraid of fate,-0.2,-0.13,0.19,0.06,False,1,True,False,False
+28,can be a bit arrogant,humble,-0.32,-0.17,-0.63,0.06,False,1,True,False,True
+29,wants people's respect,wants their love,0.22,-0.37,-1.18,0.4,False,1,True,True,False
+30,confident,unsure,-0.92,-0.1,-0.4,0.33,False,1,True,False,False
+31,commits,keeps options open,0.04,0.25,0.14,0.87,False,1,True,True,False
+32,"likes to know \""who?\"", \""what?\"", \""when?\""","likes to know \""why?\""",-0.18,0.73,0.04,0.19,False,1,True,True,False
+33,manipulates things behind the scenes,leads from the front,1.12,-0.11,-0.13,0.04,False,1,True,False,True
+34,trusting,paranoid,-0.6,0.12,0.43,-0.07,False,1,True,False,False
+35,tricky,steady,-0.2,-0.26,-0.05,-0.52,False,1,True,False,False
+36,assured by routine,bored by routine,0.6,0.59,-0.0,0.82,False,1,True,False,False
+37,needs certainty,needs flexibility,0.44,0.39,-0.16,0.82,False,1,True,False,False
+38,gets work done right away,procrastinates,-0.1,0.11,-0.29,0.93,False,1,True,True,False
+39,feels unlucky,feels very lucky,0.68,0.05,-0.12,0.05,False,1,True,False,True
+40,cares if something is good or bad,cares if something is true or false,-0.19,0.14,1.12,-0.12,False,1,True,False,False
+41,methodical,astonishing,0.45,0.21,-0.51,0.72,False,1,True,False,False
+42,cautious,bold,1.04,0.23,0.07,0.36,False,1,True,False,False
+43,likes nature,likes human industry,0.17,-0.0,0.52,-0.03,False,1,True,False,False
+44,caffeine (or other stimulant) gives a major boost,hardly notices the effects,-0.31,-0.13,0.28,-0.01,False,1,True,False,False
+45,somber,enthusiastic,1.33,-0.02,-0.54,0.31,False,1,True,False,False
+46,wants loyal friends,wants fun friends,0.5,-0.07,0.06,0.43,False,1,True,False,False
+47,no one knows what they are talking about,some people know what they are talking about,0.36,-0.11,-0.32,0.02,False,1,True,False,False
+48,sentimental,grim,-0.4,0.28,1.07,-0.13,False,1,True,False,False
+49,like to listen to stories,likes to tell stories,0.94,0.1,-0.06,0.15,False,1,True,False,True
+50,adapts to the world,wants the world to adapt to them,-0.23,0.33,0.26,-0.05,False,1,True,False,False
+51,double checks their work,hopes for the best,0.44,0.07,-0.35,0.82,False,1,True,False,False
+52,"if a lawyer, would prefer to be a prosecutor",would prefer to be defense attorney,-0.11,0.15,-0.65,0.28,False,1,True,False,False
+53,"will say \""these are the things I have made\""","will say \""these are the things I have designed\""",-0.05,0.63,0.39,0.08,True,2,False,False,False
+54,good with names,bad with names,-0.23,0.25,0.24,0.14,False,1,True,False,False
+55,likes to eavesdrop,finds other people's conversations too boring,-0.21,0.2,0.55,-0.14,False,1,True,False,False
+56,decides,guesses,-0.02,-0.04,-0.56,0.94,False,1,True,False,False
+57,sceptical,wants to believe,0.46,-0.18,-1.17,0.18,False,1,True,True,True
+58,has been through a lot of tough times,has had an easy life,0.17,-0.21,0.19,0.3,False,1,True,False,False
+59,abstains,indulges,0.57,-0.09,-0.27,0.39,False,1,True,False,False
+60,answers mail right away,gets behind on answering mail,-0.16,0.2,-0.12,0.7,False,1,True,False,False
+61,fears sharing secrets,enjoys sharing secrets,0.97,-0.1,-0.5,0.3,False,1,True,False,False
+62,wants to impress authority,rebels against authority,-0.1,0.56,0.32,0.53,False,1,True,False,False
+63,careful,lives dangerously,0.76,0.27,0.01,0.71,False,1,True,False,False
+64,careful,spontaneous,0.99,0.11,-0.25,0.85,False,1,True,False,False
+65,always finishes sentences,can trail off in the middle of a sentences,-0.19,0.16,-0.47,0.63,False,1,True,False,False
+66,reads books,watches movies,0.37,-0.25,-0.27,0.19,False,1,True,False,False
+67,"when describing an event, will tell people what happened","when describing an event, will tell people what it meant",-0.03,0.74,-0.26,0.15,False,1,True,True,False
+68,likes being drunk,feels uncomfortable when drunk,-0.61,-0.05,0.15,-0.52,False,1,True,False,False
+69,energetic,mellow,-1.24,0.11,0.15,0.05,False,1,True,True,True
+70,sincere,sarcastic,-0.06,0.03,0.87,0.04,False,1,True,False,False
+71,always has a backup plan,never needs a backup plan,0.21,-0.03,-0.16,0.6,False,1,True,False,False
+72,appreciates the scenery around them,too distracted to take a look,-0.09,0.14,0.42,-0.04,False,1,True,False,False
+73,worries most about tripping and falling in the dark,imagines monsters in the dark,-0.02,0.36,-0.49,0.28,False,1,True,False,False
+74,friendly,distant,-1.26,0.27,0.74,-0.13,False,1,True,False,False
+75,seeks clarity,seeks harmony,0.16,-0.17,-1.05,0.34,False,1,True,False,False
+76,fits in,stands out,-0.04,0.48,0.14,0.18,False,1,True,True,False
+77,thinks about things from the top down,reasons from the bottom up,-0.24,0.14,0.05,0.11,False,1,True,False,False
+78,would hate to be called weird,does not want to be thought of as normal,-0.1,0.36,0.12,0.31,False,1,True,False,False
+79,well-rounded,deep,-0.64,0.42,-0.14,0.1,False,1,True,False,False
+80,wants a normal lifespan,wants to live forever,0.34,0.57,0.28,0.12,False,1,True,False,False
+81,enthusiastic,deliberate,-1.17,-0.04,0.8,-0.53,False,1,True,False,False
+82,tries to be different,tries to be normal,-0.18,-0.43,0.0,-0.23,False,1,True,False,False
+83,has not changed much,very different than before,0.37,0.16,-0.13,0.29,False,1,True,False,False
+84,tense,relaxed,0.6,-0.1,-0.15,0.37,False,1,True,False,False
+85,makes rules,breaks rules,0.44,0.45,0.06,0.86,False,1,True,False,False
+86,literal,poetic,-0.05,0.64,-1.02,0.44,False,1,True,False,False
+87,needs to work,only works because they must,-0.07,0.06,-0.23,0.78,False,1,True,False,False
+88,liked school,hated school,-0.38,-0.06,-0.05,0.35,False,1,True,False,False
+89,comes up with ideas and convinces other people of them,critically evaluates the ideas of others,-0.66,-0.26,0.26,-0.26,False,1,True,False,False
+90,looks on the bright side,finds faults,-0.64,0.08,0.7,-0.41,False,1,True,False,False
+91,thinks it is better to be naive,thinks it is better to be paranoid,-0.38,0.11,0.56,-0.24,False,1,True,False,False
+92,worries about getting scammed all the time,too trusting,0.37,-0.15,-0.58,0.15,False,1,True,False,False
+93,jealous,greedy,0.14,-0.0,0.38,0.04,False,1,True,False,False
+94,worried about the dangers of technology,thinks technology is always good,0.05,-0.15,0.4,0.15,False,1,True,False,False
+95,listens more,talks more,1.37,-0.06,-0.09,0.23,False,1,True,True,False
+96,wants to believe,sceptical,-0.39,0.17,1.1,-0.16,False,1,True,True,True
+97,prefers to be first mate,prefers to be captain,0.93,0.18,0.36,-0.11,False,1,True,False,False
+98,flowing,twitching,-0.24,-0.06,0.13,0.04,False,1,True,False,False
+99,sticks to the plan,adapts the plan on the fly,0.49,0.4,-0.12,1.07,False,1,True,False,False
+100,idealistic,cynical,-0.45,-0.27,0.83,-0.35,False,1,True,False,False
+101,artistic,scientific,-0.21,-0.13,1.08,-0.42,False,1,True,False,False
+102,has deep interests,has many interests,0.72,-0.15,0.05,0.32,False,1,True,False,True
+103,finds natural disasters exciting,finds natural disasters tragic,0.05,-0.29,-0.66,-0.2,False,1,True,False,False
+104,accepts things as they are,unsatisfied with the ways things are,-0.06,0.55,0.15,0.0,False,1,True,True,False
+105,people-oriented,task-oriented,-1.23,-0.07,1.1,-0.57,False,1,True,False,False
+106,everyone breaks the law now and then,only bad people break the law,-0.15,-0.4,-0.18,-0.51,False,1,True,False,False
+107,tells others about their plans,tells others about what they have done,-0.22,-0.1,0.17,0.08,False,1,True,False,False
+108,keep room door closed,leaves door open,0.83,-0.09,-0.17,0.08,False,1,True,False,False
+109,wants to know what others think,decides on their own,-0.19,0.46,0.78,-0.02,False,1,True,False,False
+110,eager,reluctant,-0.86,0.01,0.33,0.08,False,1,True,False,False
+111,respects the letter of the law,follows the spirit of the law,0.06,0.51,-0.27,0.5,False,1,True,False,False
+112,criticizes themselves,accepts themselves,0.48,-0.02,0.1,0.1,False,1,True,False,False
+113,sounds and smells often bring back childhood memories,childhood memories never come unintentionally,-0.14,0.11,0.54,-0.13,False,1,True,False,False
+114,quick thinker,deep thinker,-0.79,0.37,-0.18,-0.03,False,1,True,False,False
+115,likes words,likes numbers,-0.1,-0.28,0.7,-0.22,False,1,True,False,False
+116,argues for ideas,argues against ideas,-0.04,-0.2,0.36,0.07,False,1,True,False,False
+118,complicated,uncomplicated,0.27,-0.41,0.06,0.13,False,1,True,False,False
+119,hates the dentist,does not mind the dentist,0.19,0.02,0.11,0.03,False,1,True,False,False
+120,wants the big picture,wants the details,-0.28,-0.63,0.03,-0.18,False,1,True,True,True
+121,"if a lawyer, would prefer to be a defense attorney",would prefer to be prosecutor,0.13,-0.19,0.55,-0.25,False,1,True,False,False
+122,gives hints,tell it straight up,0.35,-0.09,0.75,-0.11,False,1,True,False,False
+123,timid,offensive,0.98,0.1,0.48,0.04,False,1,True,False,False
+124,thinks only the lucky succeed,knows only the hard-working get lucky,0.02,0.06,0.26,-0.31,False,1,True,False,False
+125,judges music based on melody,judges music based on lyrics,-0.01,0.0,-0.09,0.03,False,1,True,False,False
+126,works best alone,works best in groups,1.19,-0.09,-0.33,0.21,False,1,True,True,False
+127,relaxes,daydreams,-0.26,0.48,-0.22,0.34,False,1,True,False,False
+128,views things as many shades of grey,views things as black and white,0.14,-0.29,0.25,-0.39,False,1,True,False,False
+129,keeps pets,has no interest in pets,-0.15,0.15,0.4,-0.13,False,1,True,False,False
+130,easy to gross out,fascinated by disgusting things,-0.09,0.25,0.38,0.12,False,1,True,False,False
+131,fumbling,graceful,0.24,0.03,0.1,-0.28,False,1,True,False,False
+132,hopeful,fearful,-0.68,-0.11,0.09,-0.01,False,1,True,False,False
+133,shares deepest secrets,has no secrets worth sharing,-0.58,-0.11,0.69,-0.19,False,1,True,False,False
+134,light sleeper,deep sleeper,0.08,0.03,-0.03,0.14,False,1,True,False,False
+135,comfortable,troubled,-0.71,0.26,0.08,0.11,False,1,True,False,False
+136,likes pop music,hates pop music,-0.3,0.44,0.44,-0.06,False,1,True,False,False
+137,get a task done in one go,does a task a little at a time,-0.23,-0.01,-0.31,0.41,False,1,True,False,False
+138,has to be lost for a long time before they ask for help,will stop and ask for directions right away,0.69,-0.08,-0.19,-0.25,False,1,True,False,False
+139,feels very lucky,feels unlucky,-0.69,0.04,0.04,0.04,False,1,True,False,True
+140,interested in family history,wants to leave that all behind,-0.07,0.11,0.29,0.21,False,1,True,False,False
+141,how it is done matters,only the end results matters,0.04,-0.11,0.45,0.12,False,1,True,False,False
+142,jokes about things,jokes about people,0.39,-0.07,0.23,0.06,False,1,True,False,False
+143,plans far ahead,plans at the last minute,0.3,-0.04,-0.29,1.26,False,1,True,True,False
+144,gets broken up with,does the breaking up,0.37,0.1,0.33,-0.2,False,1,True,False,False
+145,likes change,resists change,-0.53,-0.38,-0.05,-0.37,False,1,True,False,False
+146,eats quickly,savours the flavour,-0.22,0.04,-0.13,-0.09,False,1,True,False,False
+147,finds the world interesting,finds the world boring,-0.25,-0.1,0.17,-0.07,False,1,True,False,False
+148,likes popular music,likes music that is not well known,-0.42,0.43,0.21,0.24,False,1,True,False,False
+149,remembers everything they did on their birthday before last,remembers not so much,-0.39,0.29,0.18,0.19,False,1,True,False,False
+150,careful with money,a high roller,0.42,0.06,-0.28,0.56,False,1,True,False,False
+151,has an accurate internal clock,often has no idea what time it is,-0.03,0.08,-0.16,0.59,False,1,True,False,False
+152,supports a strong government,supports strong personal freedoms,-0.08,0.18,-0.02,0.31,False,1,True,False,False
+153,judges a painting on how realistic it is,judges a painting by deeper criteria,-0.02,0.74,-0.51,0.38,False,1,True,False,False
+154,gets worn out by parties,gets fired up by parties,1.77,-0.2,-0.21,0.35,False,1,True,True,False
+155,tries to give convincing speeches,tries to give inspiring speeches,0.39,0.28,-1.04,0.33,False,1,True,False,True
+156,loyal to friends,loyal to family,-0.04,-0.15,0.04,-0.27,False,1,True,False,False
+157,"will say \""these are the things I have made\""","will say \""these are the things I have designed\""",-0.06,0.46,0.43,-0.11,True,2,False,False,False
+158,likes getting gifts,has no need for gifts,-0.3,0.23,0.58,-0.22,False,1,True,False,False
+159,cheerful,gloomy,-0.91,0.18,0.44,-0.04,False,1,True,False,False
+160,prefers the old ways,tries new ways,0.44,0.55,0.15,0.33,False,1,True,False,False
+161,wants aliens to exist,hopes that they do not,0.18,-0.43,-0.13,-0.26,False,1,True,False,False
+162,wishes they could read minds,wishes they could fly,0.09,0.03,-0.25,0.38,False,1,True,False,False
+163,impatient,tolerant,-0.19,-0.12,-0.4,0.12,False,1,True,False,False
+164,jittery,smooth,0.23,0.07,0.27,-0.19,False,1,True,False,False
+165,well dressed,scruffy,-0.31,0.05,0.07,0.4,False,1,True,False,False
+166,never wants to make a mistake,accepts mistakes as inevitable,0.41,0.17,0.03,0.58,False,1,True,False,False
+167,chooses carefully,chooses randomly,0.39,-0.05,-0.34,0.66,False,1,True,False,False
+168,eats slowly,eats rapidly,0.22,-0.02,0.03,0.03,False,1,True,False,False
+169,people are basically good,people are basically evil,-0.34,0.03,0.65,-0.17,False,1,True,False,False
+170,interests often change,has stable interests,-0.35,-0.21,0.15,-0.63,False,1,True,False,False
+171,thinks people can change,thinks people will only stay the same,-0.24,-0.06,0.59,-0.34,False,1,True,False,False
+172,finds it difficult to yell very loudly,yelling to others when they are far away comes naturally,1.4,-0.11,-0.05,0.18,False,1,True,True,False
+173,tries to behave intelligently,tries to show their creativity,0.27,0.14,-0.9,0.52,False,1,True,False,False
+174,wants a big house,wants a cozy house,-0.52,0.07,-0.33,-0.02,False,1,True,False,False
+175,works hard,plays hard,0.31,-0.02,-0.21,0.82,False,1,True,True,False
+176,feels that time passes to slowly,feels that time passes to quickly,0.06,-0.01,-0.09,0.11,False,1,True,False,False
+177,aware of surroundings,easy to sneak up on,0.02,-0.01,-0.32,0.29,False,1,True,False,False
+178,serious,silly,0.64,-0.03,-0.51,0.58,False,1,True,False,False
+179,enjoys cracking joints,cracking joints is gross,-0.19,-0.04,-0.16,-0.31,False,1,True,False,False
+180,tries to give inspiring speeches,tries to give convincing speeches,-0.38,-0.18,0.99,-0.17,False,1,True,False,True
+181,identifies with characters in stories,never really seems to like any fictional characters,0.06,-0.28,0.49,-0.12,False,1,True,False,False
+182,wants to be tough,wants to be classy,0.13,0.06,-0.25,-0.04,False,1,True,False,False
+183,sees the glass as glass half full,sees it as half empty,-0.71,0.03,0.35,-0.05,False,1,True,False,False
+184,needs time alone,bored by time alone,1.44,-0.18,-0.18,0.22,False,1,True,True,False
+185,wants the details,wants the big picture,0.32,0.57,0.05,0.25,False,1,True,True,True
+186,has meaningful dreams,"has dreams that make no sense, about things that do not matter",-0.03,-0.14,0.29,-0.04,False,1,True,False,False
+187,always looks for the best price,takes the first price,0.08,0.09,-0.25,0.28,False,1,True,False,False
+188,likes to perform in front of other people,avoids public speaking,-1.41,-0.1,0.04,-0.05,False,1,True,True,False
+189,wants honest friends,wants impressive friends,0.2,0.04,0.23,0.04,False,1,True,False,False
+190,wants to be normal,wants to be different,0.24,0.51,0.01,0.39,False,1,True,False,False
+191,takes stuff to mellow out,takes stuff to amp up,0.28,-0.25,0.07,0.03,False,1,True,False,False
+192,stays at home,goes out on the town,1.43,-0.05,-0.18,0.26,False,1,True,True,False
+193,likes civilization,wants to get back to nature,-0.36,0.25,-0.3,0.21,False,1,True,False,False
+194,values emotions,uncomfortable with emotions,-0.55,0.03,1.67,-0.22,False,1,True,True,False
+195,likes to drive fast,likes to keep it under control,-0.64,0.11,-0.07,-0.47,False,1,True,False,False
+196,worries about who they are,accepts who they are,0.33,0.09,0.44,-0.04,False,1,True,False,False
+197,frequently embarrassed,shameless,0.93,0.1,0.37,0.13,False,1,True,False,False
+198,needs silence to sleep,can sleep through anything,0.58,-0.1,0.06,0.23,False,1,True,False,False
+199,shows anger,hides anger,-0.64,0.11,0.22,-0.05,False,1,True,False,False
+200,ambitious,rebellious,-0.09,-0.01,-0.14,0.66,False,1,True,False,False
+201,remembers dreams,does not,-0.08,-0.3,0.28,0.03,False,1,True,False,False
+202,likes team sports,likes individual sports,-0.8,0.37,0.31,-0.09,False,1,True,False,False
+203,trendy,hardcore,-0.12,0.07,0.29,0.02,False,1,True,False,False
+204,bounces around the room,remains calm,-1.31,0.03,0.44,-0.5,False,1,True,False,False
+205,likes stories with lots of action,likes stories with lots of twists,-0.26,0.51,-0.03,0.04,False,1,True,False,False
+206,thinks some people are all bad,knows everyone has a little bit of good in them,0.43,0.11,-0.78,0.23,False,1,True,False,False
+207,likes certain types of music,likes all types,0.29,0.03,-0.37,0.16,False,1,True,False,False
+208,worries about getting let down,worries about letting other people down,0.09,-0.1,-0.42,0.1,False,1,True,False,False
+209,brave,careful,-0.77,-0.23,0.02,-0.15,False,1,True,False,False
+210,hates people who show off,maybe a little impressed by people who show off,0.51,0.02,-0.24,0.27,False,1,True,False,False
+211,enjoys mental competition,enjoys physical competition,0.42,-0.47,-0.18,0.07,False,1,True,False,False
+212,stays up late,rises early,0.06,-0.14,0.15,-0.48,False,1,True,False,False
+213,often mistaken as being angry,anger often goes unnoticed by others,0.09,-0.07,-0.4,0.21,False,1,True,False,False
+214,cooperative,competitive,0.28,0.13,0.64,-0.1,False,1,True,False,False
+215,fears death,accepts death,-0.03,0.27,0.29,-0.1,False,1,True,False,False
+216,passive,aggressive,0.86,0.04,0.37,-0.13,False,1,True,False,False
+217,creative,wise,-0.14,-0.09,0.33,-0.46,False,1,True,False,False
+218,makes repairs,buys new,0.23,-0.11,-0.12,0.13,False,1,True,False,False
+219,has an average taste in music,has superior taste in music,0.02,0.21,0.01,0.14,False,1,True,False,False
+220,reacts deliberately,reacts instantly,0.67,-0.26,-0.36,0.46,False,1,True,False,False
+221,has many interests,has deep interests,-0.82,0.11,0.08,-0.25,False,1,True,False,True
+222,prefer to take multiple choice test,prefer essay answers,0.16,0.47,-0.08,-0.01,False,1,True,True,False
+223,has neat handwriting,has messy handwriting,-0.02,0.18,0.14,0.45,False,1,True,False,False
+224,likes being on solid ground,dreams of the sea,0.09,0.37,-0.43,0.51,False,1,True,False,False
+225,bothered by spelling mistakes,"is fine with spelling mistakes, as long as the meaning comes through",0.26,0.11,-0.13,0.44,False,1,True,False,False
+226,likes spring,likes fall,-0.48,0.39,0.24,-0.11,False,1,True,False,False
+227,forever young,all grown up,-0.45,-0.05,0.38,-0.66,False,1,True,False,False
+228,passionate,jaded,-0.56,0.02,0.73,-0.21,False,1,True,False,False
+229,poor sense of smell,good sense of smell,0.17,-0.06,-0.12,-0.02,False,1,True,False,False
+230,easily hurt,thick-skinned,0.22,0.08,1.1,-0.08,False,1,True,True,False
+231,arrogant,insecure,-0.54,-0.1,-0.67,0.19,False,1,True,False,False
+232,bonds over shared interests,bonds through shared experience,0.37,-0.14,-0.26,-0.04,False,1,True,False,False
+233,empirical,theoretical,-0.16,0.71,0.11,0.22,False,1,True,True,False
+234,envious of what other people have,envious of what other people are,-0.12,0.26,-0.14,0.1,False,1,True,False,False
+235,often misplaces their keys,has a system so that does not happen,-0.2,-0.14,0.43,-0.8,False,1,True,False,False
+236,keeps a clean room,just puts stuff where ever,0.05,0.15,-0.19,0.93,False,1,True,True,False
+237,gets bored of songs quickly,never gets tired of a good song,-0.15,-0.0,-0.18,-0.09,False,1,True,False,False
+238,hates conflict,makes trouble,0.64,0.14,0.52,0.23,False,1,True,False,False
+239,practical,dreamy,-0.01,0.7,-0.88,0.76,False,1,True,False,False
+240,must be special,content to be normal,-0.32,-0.46,0.14,-0.27,False,1,True,False,False
+241,prefers to be captain,rather be first mate,-1.02,-0.21,-0.39,0.19,False,1,True,False,False
+242,does not vary diet,tries new foods,0.59,0.26,-0.15,0.21,False,1,True,False,False
+243,knows what they want,still trying to figure it all out,-0.39,-0.25,-0.39,0.76,False,1,True,False,False
+244,gives complements,receives compliments,-0.13,0.0,0.74,0.02,False,1,True,False,False
+245,"likes to \""just drive\""",would never drive without a purpose,-0.31,0.06,0.49,-0.63,False,1,True,False,False
+246,thinks about what they would do as a criminal,does not like the idea of crime,-0.03,-0.47,-0.51,-0.34,False,1,True,False,False
+247,wants deep friendships,wants many friendships,0.77,-0.11,0.08,0.15,False,1,True,False,False
+248,scheduled,spontaneous,0.57,0.34,-0.35,1.17,False,1,True,False,False
+249,steady,unstable,-0.19,0.16,-0.34,0.56,False,1,True,False,False
+250,prefer to run a small business,prefer to run a large corporation,0.64,0.07,0.63,-0.07,False,1,True,False,False
+251,rises early,sleeps late,-0.1,0.08,-0.1,0.58,False,1,True,False,False
+252,bothered by disgusting things,fails to notice how gross things are,0.11,0.23,0.42,0.34,False,1,True,False,False
+253,starts over when they fail,tries something new when they fail,0.3,0.36,-0.02,0.31,False,1,True,False,False
+254,prefer to read the news,prefer to read a story,-0.19,0.01,-0.43,0.24,False,1,True,False,False
+255,likes to tell stories,like to listen to stories,-0.96,-0.05,0.14,-0.13,False,1,True,False,True
+256,always looking to taste something new,could eat the same thing every day,-0.51,-0.28,0.03,-0.33,False,1,True,False,False
+257,likes sports,bored by sports,-0.7,0.39,-0.03,0.1,False,1,True,False,False
+258,hates being photographed,loves it,1.06,-0.25,-0.44,0.21,False,1,True,False,False
+259,wants to be good at fixing things,wants to be good at fixing people,0.4,-0.04,-1.28,0.1,False,1,True,True,False
+260,works in fits and bursts,works through it steadily,-0.23,-0.38,0.3,-0.84,False,1,True,False,False
+261,open,guarded,-1.41,0.04,0.67,-0.33,False,1,True,False,False
+262,tries a sensible solution,tries a clever solution,0.32,0.63,0.34,0.36,False,1,True,False,False
+263,leads from the front,manipulates things behind the scenes,-1.16,0.27,0.29,-0.09,False,1,True,False,True
+264,normal,alternative,-0.08,0.61,0.02,0.36,False,1,True,False,False
+265,likes looking at pictures of them as a baby,hates that,-0.52,0.14,0.86,-0.1,False,1,True,False,False
+266,reads the instructions first,jumps right into it,0.57,0.03,-0.18,0.54,False,1,True,False,False
+267,reckless,solid,-0.4,-0.1,0.21,-0.87,False,1,True,False,False
+268,feels most content at the start of the day,feels most content at the end of the day,-0.23,0.04,0.17,0.11,False,1,True,False,False
+269,would enjoy being stranded on an island,would want to be rescued as quickly as possible,0.81,-0.46,-0.3,0.04,False,1,True,False,False
+270,reflective,active,1.0,-0.4,0.09,-0.03,False,1,True,False,False
+271,does a good job handling the preparation,does a good job handling the fallout,0.3,0.17,-0.05,0.72,False,1,True,False,False
+272,mysterious,reliable,0.3,-0.41,-0.06,-0.53,False,1,True,False,False
+273,still in contact with first friends,loses touch with old friends,-0.57,0.35,0.3,0.22,False,1,True,False,False
+274,follows rules,breaks rules,0.37,0.56,0.24,0.66,False,1,True,False,False
+275,"thinks \""robotic\"" is an insult",strives to have a mechanical mind,-0.45,-0.02,1.21,-0.41,False,1,True,True,False
+276,embarrassed by the things they daydream about,proud of the things they daydream about,0.46,0.31,0.1,0.19,False,1,True,False,False
+277,puts time into choosing/preparing food,goes for whatever is simplest,-0.1,-0.27,0.17,0.45,False,1,True,False,False
+278,has difficulty explaining their ideas,confident explaining their ideas,1.02,0.26,0.31,-0.13,False,1,True,False,False
+279,focuses on one thing at a time,multitasks,0.47,0.14,0.04,0.33,False,1,True,False,False
+280,does their best,does what they need to get by,-0.15,-0.13,0.17,0.72,False,1,True,False,False
+281,buys things they like,only buys things they really need,-0.32,0.15,0.39,-0.35,False,1,True,False,False
+282,obsessed with travelling,no need to see the world,-0.35,-0.08,0.22,-0.23,False,1,True,False,True
+283,trusts personal experience,trusts theoretical knowledge,-0.3,0.45,0.68,-0.09,False,1,True,False,False
+284,no need to see the world,obsessed with travelling,0.47,0.15,-0.25,0.33,False,1,True,False,True
+285,follows the heart,follows the head,-0.36,0.01,1.6,-0.45,False,1,True,True,False
+286,demands precision,satisfied with good enough,0.25,-0.12,-0.5,0.68,False,1,True,False,False
+287,makes lists,relies on memory,0.06,0.14,0.13,0.75,False,1,True,True,False
+288,prefer to be wealthy,prefer to be famous,0.41,0.15,-0.36,0.22,False,1,True,False,False
+289,never edits their writing once they are done,always goes back and makes many revisions,-0.16,0.06,0.02,-0.41,False,1,True,False,False
+290,mellow,energetic,1.37,-0.05,-0.12,0.14,False,1,True,True,True
+291,tactful with others,blunt with others,0.02,0.04,0.86,-0.07,False,1,True,False,False
+292,nervous,calm,0.28,-0.05,0.56,-0.03,False,1,True,False,False
+293,likes music,likes the visual arts,-0.01,0.24,0.06,0.11,False,1,True,False,False
+294,happy at home,obsessed with travelling,0.78,0.09,-0.17,0.32,False,1,True,False,False
+295,bases morality on compassion,bases morality on justice,-0.16,-0.02,1.32,-0.39,False,1,True,True,False
+296,okay,perfect,0.46,0.14,0.41,-0.28,False,1,True,False,False
+297,judges a painting on how realistic it is,judges a painting on the feeling it conveys,0.07,0.34,-0.84,0.33,False,1,True,False,False
+298,saves it,uses it,0.39,0.05,0.18,0.29,False,1,True,False,False

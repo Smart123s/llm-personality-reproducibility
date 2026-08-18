@@ -1,0 +1,27 @@
+{
+  "model": "gemini-3.5-flash",
+  "generation_seed": 656,
+  "verification_seed": 657,
+  "requested_pairs_per_dichotomy": 40,
+  "pole_descriptions": {
+    "IE": [
+      "draws energy from social interaction, outgoing, expressive, seeks external stimulation",
+      "draws energy from solitude, reserved, reflective, prefers depth over breadth of contact"
+    ],
+    "SN": [
+      "attends to patterns, future possibilities, abstract meanings, imaginative connections",
+      "attends to concrete facts, present realities, practical details, direct experience"
+    ],
+    "FT": [
+      "decides through impartial logic, consistency, objective criteria, detached analysis",
+      "decides through personal values, empathy, harmony, impact on people"
+    ],
+    "JP": [
+      "prefers flexibility, spontaneity, open options, adapting plans on the fly",
+      "prefers structure, planning, closure, organized schedules, settled decisions"
+    ]
+  },
+  "prompt_template": "Generate {n} English behavioural statement pairs.\n\nEach pair must describe the SAME everyday work or social situation with two\nalternative behavioural responses.\n\nStatement \"a\" must be typical of a person who: {desc_a}.\nStatement \"b\" must be typical of a person who: {desc_b}.\n\nRequirements:\n- both sentences refer to the same context, similar length, at most 25 words each;\n- no personality-test or typology terminology;\n- neither sentence more socially desirable than the other;\n- return exactly {n} pairs via the structured-output schema.\n",
+  "verification_enabled": true,
+  "duplicate_rule": "after verification and polarity correction, retain only the first accepted occurrence of an identical normalized unordered statement pair"
+}

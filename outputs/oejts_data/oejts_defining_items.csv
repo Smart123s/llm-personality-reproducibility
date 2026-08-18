@@ -1,0 +1,33 @@
+qid,scale,left,right,sign
+1,JP,makes lists,relies on memory,1
+2,FT,sceptical,wants to believe,-1
+3,IE,bored by time alone,needs time alone,-1
+4,SN,accepts things as they are,unsatisfied with the way things are,1
+5,JP,keeps a clean room,just puts stuff where ever,1
+6,FT,"thinks ""robotic"" is an insult",strives to have a mechanical mind,1
+7,IE,energetic,mellow,-1
+8,SN,prefers to take multiple choice tests,prefers essay answers,1
+9,JP,chaotic,organized,-1
+10,FT,easily hurt,thick-skinned,1
+11,IE,works best in groups,works best alone,-1
+12,SN,focused on the present,focused on the future,1
+13,JP,plans far ahead,plans at the last minute,1
+14,FT,wants people's respect,wants their love,-1
+15,IE,gets worn out by parties,gets fired up by parties,1
+16,SN,fits in,stands out,1
+17,JP,keeps options open,commits,-1
+18,FT,wants to be good at fixing things,wants to be good at fixing people,-1
+19,IE,talks more,listens more,-1
+20,SN,"when describing an event, tells people what happened","when describing an event, tells people what it meant",1
+21,JP,gets work done right away,procrastinates,1
+22,FT,follows the heart,follows the head,1
+23,IE,stays at home,goes out on the town,1
+24,SN,wants the big picture,wants the details,-1
+25,JP,improvises,prepares,-1
+26,FT,bases morality on justice,bases morality on compassion,-1
+27,IE,finds it difficult to yell very loudly,yelling to others when they are far away comes naturally,1
+28,SN,theoretical,empirical,-1
+29,JP,works hard,plays hard,1
+30,FT,uncomfortable with emotions,values emotions,-1
+31,IE,likes to perform in front of other people,avoids public speaking,-1
+32,SN,"likes to know ""who?"", ""what?"", ""when?""","likes to know ""why?""",1
